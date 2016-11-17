@@ -1,3 +1,19 @@
 .our_languages {
   display: inline-block;
 }
+
+.logo {
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+}
+
+b {
+  font-size: 16px;
+  font-style:
+}
+
+p {
+  font-size: 15px;
+  font-style: italic;
+}
