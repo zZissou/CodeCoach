@@ -56,3 +56,17 @@ var studentsList = [{
     bio: 'Looking for a mentor who can help me with Java',
     image: 'https://avatars.slack-edge.com/2016-10-17/92371312183_8176715423de397bb4b4_512.jpg'
 }];
+
+
+
+
+db.Mentor.remove({}, function(err, mentors) {
+    db.Mentor.create(mentorsList, function(err, mentors) {
+        if (err) {
+            return console.log('ERROR', err);
+        }
+        console.log("all mentors:", mentors);
+        console.log("created", mentors.length, "mentors");
+        process.exit();
+    });
+});
