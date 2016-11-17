@@ -1,0 +1,24 @@
+{
+  "name": "codecoach",
+  "version": "1.0.0",
+  "description": "## Wireframe ![wireframe](https://cloud.githubusercontent.com/assets/20157292/20363898/ec29bdc0-abf5-11e6-86f6-e66922979906.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zZissou/CodeCoach.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zZissou/CodeCoach/issues"
+  },
+  "homepage": "https://github.com/zZissou/CodeCoach#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.8"
+  }
+}
