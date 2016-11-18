@@ -9,7 +9,7 @@
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/styles/index.css">
+    <link rel="stylesheet" href="styles/index.css">
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
-    <script src="../public/scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
 </head>
 <body>
   <div class="search-main col-md-9 col-md-offset-1">
@@ -26,21 +26,23 @@
       <!-- toggle between students and coaches -->
       <h1>Find a Coach!</h1>
     </div>
-    <div class="mentors row" id="mentors">
+  <div class="profile-section container-fluid">
+    <div class="row" id="mentors">
       <script id="mentor-template" type="text/x-handlebars-template">
-          <div class="profile-mentor col-md-4" data-id="{{_id}}">
-              <p>
-                  <div>
-                      <img src={{image}} class="logo">
-                    </div>
-                    <b>{{name}}</b>
-                    <br>
-                    <i>{{bio}}</i>
-                    <br>
-                  </p>
-                </div>
+        <div class="profile-mentor col-md-4" data-id="{{_id}}">
+          <p>
+            <div>
+              <img src={{image}} class="logo">
+            </div>
+            <b>{{name}}</b>
+            <br>
+            <i>{{bio}}</i>
+            <br>
+          </p>
+        </div>
       </script>
     </div>
+  </div>
     <div class="search-navigation col-md-12">
       <button type="button" class="btn btn-primary">Return to Profile</button>
       <button type="button" class="btn btn-primary">View More Results</button>

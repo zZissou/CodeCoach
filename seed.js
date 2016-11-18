@@ -43,7 +43,7 @@ var mentorsList = [{
   number: '7654561234',
   website: 'https://github.com/benthemanning',
   areaOfInterest: ['Javascript', 'Ruby', 'PHP'],
-  bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.'
+  bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.',
   image: 'https://avatars.slack-edge.com/2015-07-04/7235892081_e3639065d029cc3a76e0_192.jpg'
 }, {
   name: 'Dylan Conroy',
@@ -51,21 +51,21 @@ var mentorsList = [{
   number: '9514475985',
   website: 'https://github.com/dylan_conroy',
   areaOfInterest: ['C++', 'Ruby', 'Javascript'],
-  bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.'
+  bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.',
   image: 'https://s3.amazonaws.com/uifaces/faces/twitter/felipeapiress/128.jpg'
 }, {
   name: 'Janet Kreiger PhD',
   email: 'janet_krieger89@gmail.com',
   number: '5082849882',
-  website: 'https://github.com/janet2'
-  areaOfInterest: ['Javascript', 'PHP', 'C++', 'Ruby']
+  website: 'https://github.com/janet2',
+  areaOfInterest: ['Javascript', 'PHP', 'C++', 'Ruby'],
   image: 'https://s3.amazonaws.com/uifaces/faces/twitter/sunshinedgirl/128.jpg'
 }, {
   name: 'Nilda Tremblay',
   email: 'nelda48@yahoo.com',
-  number: '6581584505'
+  number: '6581584505',
   website: 'https://github.com/nelda_tremblay99',
-  areaOfInterest: ['Python', 'C++']
+  areaOfInterest: ['Python', 'C++'],
   image: 'https://s3.amazonaws.com/uifaces/faces/twitter/IsaryAmairani/128.jpg'
 }, {
   name: 'Chet Weimann',
@@ -81,7 +81,7 @@ var studentsList = [{
   number: '1294837161',
   website: 'https://github.com/zZissou',
   areaOfInterest: ['Javascript', 'Python'],
-  bio: 'Part time model. Full time Web Development student. Currently looking to expand my Javascript knowledge as well as learn Python.'
+  bio: 'Part time model. Full time Web Development student. Currently looking to expand my Javascript knowledge as well as learn Python.',
   image: 'https://media.licdn.com/media/AAEAAQAAAAAAAALOAAAAJGRhN2VhZmM1LTdlMjItNDM1My05YmI5LTI5ZTJiZjQxNjc4Yw.jpg'
 }, {
   name: 'Diane Liu',
@@ -89,7 +89,7 @@ var studentsList = [{
   number: '0932134234',
   website: 'https://github.com/cittaliu',
   areaOfInterest: ['Java', 'Ruby'],
-  bio: 'Currently enrolled in the Web Development Immersive Program at General Assembly. I have an advanced skill level in Javascript from my Masters in Electrical Engineering and Im looking for a mentor who can help me with Java and Ruby.'
+  bio: 'Currently enrolled in the Web Development Immersive Program at General Assembly. I have an advanced skill level in Javascript from my Masters in Electrical Engineering and Im looking for a mentor who can help me with Java and Ruby.',
   image: 'https://avatars.slack-edge.com/2016-10-17/92371312183_8176715423de397bb4b4_512.jpg'
 }, {
   name: 'Stephen Dangerfield',
@@ -97,7 +97,7 @@ var studentsList = [{
   number: '0987654321',
   website: 'https://github.com/dangersteve',
   areaOfInterest: ['Javascript'],
-  bio: 'Theres only one thing in this world that I love more than danger and thats learning to code. As a Junior Full Stack Developer, Im looking for a Coach to help me improve my Javascript skills.'
+  bio: 'Theres only one thing in this world that I love more than danger and thats learning to code. As a Junior Full Stack Developer, Im looking for a Coach to help me improve my Javascript skills.',
   image: 'https://avatars.slack-edge.com/2016-10-17/92588041669_9eb08a604f0b4838e321_512.jpg'
 }, {
   name: 'Henry Conroy',
@@ -105,7 +105,7 @@ var studentsList = [{
   number: '7382875315',
   website: 'https://github.com/Henry94',
   areaOfInterest: ['C++', 'PHP'],
-  bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.'
+  bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.',
   image: 'https://s3.amazonaws.com/uifaces/faces/twitter/hoangloi/128.jpg'
 }, {
   name: 'Helen West',
@@ -128,7 +128,7 @@ var studentsList = [{
   email: 'Herminia56@yahoo.com',
   number: '734-524-6537',
   website: 'https://github.com/Herminia_Hessel',
-  areaOfInterest: ['Java', 'Python' 'PHP'],
+  areaOfInterest: ['Java', 'Python', 'PHP'],
   bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.',
   image: 'https://s3.amazonaws.com/uifaces/faces/twitter/itskawsar/128.jpg'
 }, {

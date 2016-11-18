@@ -28,13 +28,13 @@ app.get('/', function homepage(req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/api', controllers.api.index);
+app.get('/api', controllers.mentors.index);
 
 app.get('/api/mentors', controllers.mentors.index);
 app.get('/api/mentors/:mentorId', controllers.mentors.show);
 app.post('api/mentors', controllers.mentors.create);
 app.delete('/api/mentors/:mentorsId', controllers.mentors.destroy);
-app.put('/api/albums/:albumsId', controllers.mentor.update);
+app.put('/api/mentors/:mentorsId', controllers.mentors.update);
 
 // listen on port 3000
 app.listen(process.env.PORT || 3000, function() {
