@@ -1,15 +1,13 @@
 var template;
 
 $(document).ready(function() {
-    console.log('app.js loaded!');
-
-    $.ajax({
-        method: 'GET',
-        url: '/api/mentors',
-        type: 'json',
-        success: handleGetMentorSuccess,
-        error: handleGetMentorError
-    });
+  $.ajax({
+    method: 'GET',
+    url: '/api/mentors',
+    type: 'json',
+    success: handleGetMentorSuccess,
+    error: handleGetMentorError
+  });
 });
 
 function handleGetMentorSuccess(data) {

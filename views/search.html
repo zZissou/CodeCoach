@@ -9,7 +9,7 @@
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/styles/index.css">
+    <link rel="stylesheet" href="styles/index.css">
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
-    <script src="../public/scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
 </head>
 <body>
   <div class="search-main col-md-9 col-md-offset-1">
@@ -26,30 +26,23 @@
       <!-- toggle between students and coaches -->
       <h1>Find a Coach!</h1>
     </div>
-    <div class="search-results-left col-md-6">
-      <div class="indiv-result">
-        <!-- image of person -->
-        <img div class="indiv-result-photo col-md-3">
-        <button type="button" class="btn btn-primary glyphicon glyphicon-earphone"></button>
-        <div class="indiv-result-information col-md-9">
-          <h2>Kyle Russell</h2>
-            <p>Etiam hendrerit quam felis, ac semper justo tincidunt non. Aliquam erat volutpat. Praesent pellentesque ullamcorper ex, vitae interdum ligula ultrices sagittis.</p>
-            <div class="my languages"></div>
+  <div class="profile-section container-fluid">
+    <div class="row" id="mentors">
+      <script id="mentor-template" type="text/x-handlebars-template">
+        <div class="profile-mentor col-md-4" data-id="{{_id}}">
+          <p>
+            <div>
+              <img src={{image}} class="logo">
+            </div>
+            <b>{{name}}</b>
+            <br>
+            <i>{{bio}}</i>
+            <br>
+          </p>
         </div>
-      </div>
+      </script>
     </div>
-    <div class="search-results-right col-md-6">
-      <div class="indiv-result">
-        <div class="indiv-result-information col-md-9">
-          <h2>Kyle Russell</h2>
-            <p>Etiam hendrerit quam felis, ac semper justo tincidunt non. Aliquam erat volutpat. Praesent pellentesque ullamcorper ex, vitae interdum ligula ultrices sagittis.</p>
-            <div class="my languages"></div>
-        </div>
-        <!-- image of person -->
-        <img div class="indiv-result-photo col-md-3">
-        <button type="button" class="btn btn-primary glyphicon glyphicon-earphone"></button>
-      </div>
-    </div>
+  </div>
     <div class="search-navigation col-md-12">
       <button type="button" class="btn btn-primary">Return to Profile</button>
       <button type="button" class="btn btn-primary">View More Results</button>

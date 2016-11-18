@@ -1,10 +1,15 @@
+.navbar {
+  margin: 0;
+}
 .our_languages {
   display: inline-block;
 }
-
+.box {
+  
+}
 .logo {
-  height: 300px;
-  width: 300px;
+  height: 100px;
+  width: 100px;
   overflow: hidden;
 }
 
@@ -16,4 +21,35 @@ b {
 p {
   font-size: 15px;
   font-style: italic;
+}
+
+/*Student section on index*/
+.main-indiv-left {
+  border: 2px black solid;
+  padding: 5px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+.main-indiv-left .logo {
+  float: left;
+}
+.tester {
+  padding-right: 0;
+}
+
+.test {
+  padding: 0;
+  margin: 0;
+}
+/*Coach section on index*/
+.main-indiv-right {
+  border: 2px black solid;
+  padding: 5px;
+  height: 200px;
+  margin-bottom: 20px
+}
+
+.main-indiv-right .logo {
+  float: right;
+  margin-left: 5px;
 }
