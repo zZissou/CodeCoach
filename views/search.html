@@ -26,29 +26,20 @@
       <!-- toggle between students and coaches -->
       <h1>Find a Coach!</h1>
     </div>
-    <div class="search-results-left col-md-6">
-      <div class="indiv-result">
-        <!-- image of person -->
-        <img div class="indiv-result-photo col-md-3">
-        <button type="button" class="btn btn-primary glyphicon glyphicon-earphone"></button>
-        <div class="indiv-result-information col-md-9">
-          <h2>Kyle Russell</h2>
-            <p>Etiam hendrerit quam felis, ac semper justo tincidunt non. Aliquam erat volutpat. Praesent pellentesque ullamcorper ex, vitae interdum ligula ultrices sagittis.</p>
-            <div class="my languages"></div>
-        </div>
-      </div>
-    </div>
-    <div class="search-results-right col-md-6">
-      <div class="indiv-result">
-        <div class="indiv-result-information col-md-9">
-          <h2>Kyle Russell</h2>
-            <p>Etiam hendrerit quam felis, ac semper justo tincidunt non. Aliquam erat volutpat. Praesent pellentesque ullamcorper ex, vitae interdum ligula ultrices sagittis.</p>
-            <div class="my languages"></div>
-        </div>
-        <!-- image of person -->
-        <img div class="indiv-result-photo col-md-3">
-        <button type="button" class="btn btn-primary glyphicon glyphicon-earphone"></button>
-      </div>
+    <div class="mentors row" id="mentors">
+      <script id="mentor-template" type="text/x-handlebars-template">
+          <div class="profile-mentor col-md-4" data-id="{{_id}}">
+              <p>
+                  <div>
+                      <img src={{image}} class="logo">
+                    </div>
+                    <b>{{name}}</b>
+                    <br>
+                    <i>{{bio}}</i>
+                    <br>
+                  </p>
+                </div>
+      </script>
     </div>
     <div class="search-navigation col-md-12">
       <button type="button" class="btn btn-primary">Return to Profile</button>
