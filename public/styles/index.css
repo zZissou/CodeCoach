@@ -5,7 +5,7 @@
   display: inline-block;
 }
 .box {
-  
+
 }
 .logo {
   height: 100px;
@@ -29,9 +29,20 @@ p {
   padding: 5px;
   height: 200px;
   margin-bottom: 20px;
+  position: relative;
+}
+.main-indiv-left h3 {
+  margin-top: 0;
+  position: absolute;
+}
+.main-indiv-left p {
+  position: absolute;
+  left: 110px;
+  bottom: 25px;
 }
 .main-indiv-left .logo {
-  float: left;
+  position: absolute;
+  top: 50px;
 }
 .tester {
   padding-right: 0;
@@ -48,6 +59,7 @@ p {
   height: 200px;
   margin-bottom: 20px
 }
+
 
 .main-indiv-right .logo {
   float: right;

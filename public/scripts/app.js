@@ -1,4 +1,5 @@
 var template;
+var Handlebars;
 
 $(document).ready(function() {
   $.ajax({

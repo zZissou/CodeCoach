@@ -61,11 +61,8 @@ app.get('/login', function(req, res) {
 app.get('/profile', function(req, res) {
     // find the user currently logged in
     Mentor.findOne({
-        _id: req.session.userId
-    }, function(err, currentUser) {
-        res.render('profile.ejs', {
-            mentor: currentUser
-        })
+        _id: req.session.userId}, function(err, currentUser) {
+        res.render('profile.ejs', {mentor: currentUser})
     });
 });
 
