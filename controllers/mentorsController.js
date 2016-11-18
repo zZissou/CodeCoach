@@ -31,15 +31,32 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  db.Mentor
+  db.Mentor.findById(req.params.mentorId, function(err, foundMentor) {
+    if(err) { console.log('mentorsController.show error', err); }
+    console.log('mentorsController.show responding with', foundMentor);
+    res.json(foundMentor);
+  });
 }
 
 function destroy(req, res) {
-    // FILL ME IN !
+    dbMentor.findOneandRemove({ _id: req.params.mentorId }, function(err, foundMentor){
+      res.json(foundMentor);
+    });
 }
 
 function update(req, res) {
-    // FILL ME IN !
+  console.log('updating with data', req.body);
+  db.Mentor.findbyId(req.params.mentorId, function(err, foundMentor) {
+    if (err) { console.log('mentorsController.update error', err); }
+    foundMentor.name = req.body.name;
+    foundMentor.email = req.body.email;
+    foundMentor.website = req.body.website;
+    foundMentor.number = req.body.number;
+    foundMentor.save(function(err, savedAlbum) {
+      if (err) { console.log('saving altered mentor failed'); }
+      res.json(savedMentor);
+    });
+  });
 }
 
 
