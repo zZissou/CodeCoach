@@ -14,16 +14,24 @@ function index(req, res) {
             mentors: allMentors
         });
     });
-    // FILL ME IN !
 }
 
 
 function create(req, res) {
-    // FILL ME IN !
+  console.log('body', req.body);
+
+  var languages = req.body.languages.split(',').map(function(item) { return item.trim(); } );
+  req.body.languages = languages;
+
+  db.Mentor.create(req.body, function(err, mentor) {
+    if (err) { console.log('error', err); }
+    console.log(mentor);
+    res.json(mentor);
+  });
 }
 
 function show(req, res) {
-    // FILL ME IN !
+  db.Mentor
 }
 
 function destroy(req, res) {

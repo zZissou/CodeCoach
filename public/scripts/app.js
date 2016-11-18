@@ -33,3 +33,19 @@ function renderMentor(mentor) {
     var mentorHtml = template(mentor);
     $('#mentors').prepend(mentorHtml);
 }
+
+
+// <div class="mentors row" id="mentors">
+//     <script id="mentor-template" type="text/x-handlebars-template">
+//         <div class="profile-mentor col-md-4" data-id="{{_id}}">
+//             <p>
+//                 <div>
+//                     <img src={{image}} class="logo">
+//                 </div>
+//                 <b>{{name}}</b>
+//                 <br>
+//                 <i>{{bio}}</i>
+//                 <br>
+//             </p>
+//         </div>
+//     </script>

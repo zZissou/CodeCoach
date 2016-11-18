@@ -38,7 +38,6 @@ var mentorsList = [{
     bio: 'Instructional Associate-WDI-SF',
     image: 'https://avatars.slack-edge.com/2016-08-02/65585343381_49ff7655355221ea892f_192.png'
 }];
-
 var studentsList = [{
     name: 'Kyle Russell',
     email: 'kyle.edward.russell@gmail.com',
