@@ -1,5 +1,3 @@
-console.log('app.js loaded!');
-
 var template;
 
 $(document).ready(function() {
@@ -28,7 +26,6 @@ function handleGetMentorError(a, b, c) {
 
 function renderMentor(mentor) {
     var source = $('#mentor-template').html();
-    console.log(source);
     var template = Handlebars.compile(source);
     var mentorHtml = template(mentor);
     $('#mentors').prepend(mentorHtml);
