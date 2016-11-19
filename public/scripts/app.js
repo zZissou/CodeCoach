@@ -1,4 +1,5 @@
 var template;
+var Handlebars;
 
 $(document).ready(function() {
   $.ajax({
@@ -27,4 +28,11 @@ function renderMentor(mentor) {
     var template = Handlebars.compile(source);
     var mentorHtml = template(mentor);
     $('#mentors').prepend(mentorHtml);
+}
+
+function renderProfile(profile) {
+  var source = $('profile-template').html();
+  var template = Handlebars.compile(source);
+  var profileHtml = template(profile);
+  $('#profiles').prepend(profileHtml);
 }
