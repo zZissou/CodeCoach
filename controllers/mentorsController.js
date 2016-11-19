@@ -52,7 +52,7 @@ function update(req, res) {
     foundMentor.email = req.body.email;
     foundMentor.website = req.body.website;
     foundMentor.number = req.body.number;
-    foundMentor.save(function(err, savedAlbum) {
+    foundMentor.save(function(err, savedMentor) {
       if (err) { console.log('saving altered mentor failed'); }
       res.json(savedMentor);
     });
