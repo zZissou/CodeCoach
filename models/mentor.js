@@ -11,8 +11,8 @@ var MentorSchema = new Schema({
     website: String,
     number: Number,
     areaOfInterest: [String],
+    image: String,
     bio: String,
-    image: String
     // pending: [Student.schema],
     // accepted: [Student.schema]
 });
@@ -27,8 +27,8 @@ MentorSchema.statics.createSecure = function(newUser, callback) {
     var website = newUser.website;
     var number = newUser.number;
     var areaOfInterest = newUser.areaOfInterest;
+    var image = newUser.image;
     var bio = newUser.bio;
-    var image = newUser.bio;
     var MentorModel = this;
 
     // hash password user enters at sign up
@@ -44,8 +44,8 @@ MentorSchema.statics.createSecure = function(newUser, callback) {
                 website: website,
                 number: number,
                 areaOfInterest: areaOfInterest,
-                bio: bio,
-                image: image
+                image: image,
+                bio: bio
                 // pending: pending,
                 // accepted: accepted
             }, callback);
