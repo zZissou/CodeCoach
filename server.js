@@ -57,6 +57,10 @@ app.get('/login', function(req, res) {
     res.render('login');
 });
 
+app.get('/search', function(req, res) {
+  res.render('search');
+});
+
 // show user profile page
 app.get('/profile', function(req, res) {
     // find the user currently logged in

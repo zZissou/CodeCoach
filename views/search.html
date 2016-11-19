@@ -2,50 +2,68 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>CodeCoach - Search Results</title>
+  <title>CodeCoach - Search Results</title>
 
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/index.css">
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/index.css">
 
-    <!-- VENDOR SCRIPTS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <!-- VENDOR SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
-    <!-- APPLICATION SCRIPTS -->
-    <script src="scripts/app.js"></script>
+  <!-- APPLICATION SCRIPTS -->
+  <script src="scripts/app.js"></script>
 </head>
+
 <body>
   <div class="search-main col-md-9 col-md-offset-1">
-    <div class="search-header">
 
-      <div class="btn-group" id="toggle_event_editing">
-        <button type="button" class="btn btn-info locked_active">Students</button>
-        <button type="button" class="btn btn-default unlocked_inactive">Coaches</button>
-      <!-- toggle between students and coaches -->
-      <h1>Find a Coach!</h1>
+    <!-- toggle between students and coaches -->
+    <div class="btn-group" id="toggle_event_editing">
+      <button type="button" class="btn btn-info locked_active">Students</button>
+      <button type="button" class="btn btn-default unlocked_inactive">Coaches</button>
     </div>
-  <div class="profile-section container-fluid">
-    <div class="row" id="mentors">
-      <script id="mentor-template" type="text/x-handlebars-template">
-        <div class="profile-mentor col-md-4" data-id="{{_id}}">
-          <p>
-            <div>
-              <img src={{image}} class="logo">
-            </div>
-            <b>{{name}}</b>
-            <br>
-            <i>{{bio}}</i>
-            <br>
-          </p>
-        </div>
-      </script>
+    <div class="profile-section container-fluid">
+      <div class="row" id="mentors">
+        <script id="mentor-template" type="text/x-handlebars-template">
+          <div class="profile-mentor col-md-4" data-id="{{_id}}">
+            <h1>Find a Coach!</h1>
+            <p>
+              <div>
+                <img src={{image}} class="logo">
+              </div>
+              <b>{{name}}</b>
+              <br>
+              <i>{{bio}}</i>
+              <br>
+              <p>{{areaOfInterest}}
+              </p>
+          </div>
+        </script>
+      </div>
+      <div class="row" id="students">
+        <script id="student-template" type="text/x-handlebars-template">
+          <div class="profile-student col-md-4" data-id="{{_id}}">
+            <h1>Find a Student!</h1>
+            <p>
+              <div>
+                <img src={{image}} class="logo">
+              </div>
+              <b>{{name}}</b>
+              <br>
+              <i>{{bio}}</i>
+              <br>
+              <p>{{areaOfInterest}}
+              </p>
+          </div>
+        </script>
+      </div>
     </div>
-  </div>
     <div class="search-navigation col-md-12">
       <button type="button" class="btn btn-primary">Return to Profile</button>
       <button type="button" class="btn btn-primary">View More Results</button>
