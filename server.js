@@ -85,8 +85,12 @@ app.post('/users', function(req, res) {
 app.post('/sessions', function(req, res) {
     // use the email and password to authenticate here
     Mentor.authenticate(req.body.email, req.body.password, function(err, user) {
+      if(err){
+        res.redirect('/login');
+      }else{
         req.session.userId = user._id;
         res.redirect('/profile');
+      }
     });
 });
 
