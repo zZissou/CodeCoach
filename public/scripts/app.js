@@ -29,3 +29,10 @@ function renderMentor(mentor) {
     var mentorHtml = template(mentor);
     $('#mentors').prepend(mentorHtml);
 }
+
+function renderProfile(profile) {
+  var source = $('profile-template').html();
+  var template = Handlebars.compile(source);
+  var profileHtml = template(profile);
+  $('#profiles').prepend(profileHtml);
+}

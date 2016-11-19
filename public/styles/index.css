@@ -1,10 +1,25 @@
 .navbar {
   margin: 0;
 }
+
+.heading {
+  text-align: center;
+}
+
+/*about us section*/
+.about-us {
+  text-align: center;
+}
+.about-us p {
+  text-align: center;
+  font-size: 150%;
+  margin-top: 50px;
+}
 .our_languages {
-  display: inline-block;
 }
 .box {
+  border: 2px solid black;
+  margin: 10px;
 
 }
 .logo {
@@ -39,10 +54,13 @@ p {
   position: absolute;
   left: 110px;
   bottom: 25px;
+  right:
+
 }
 .main-indiv-left .logo {
   position: absolute;
-  top: 50px;
+  top: 55px;
+
 }
 .tester {
   padding-right: 0;
