@@ -19,33 +19,34 @@
     <!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
 </head>
-<body>
-  <div class="search-main col-md-9 col-md-offset-1">
-    <div class="search-header">
 
-      <!-- toggle between students and coaches -->
-      <h1>Find a Coach!</h1>
-    </div>
-  <div class="profile-section container-fluid">
-    <div class="row" id="mentors">
-      <script id="mentor-template" type="text/x-handlebars-template">
-        <div class="profile-mentor col-md-4" data-id="{{_id}}">
-          <p>
-            <div>
-              <img src={{image}} class="logo">
-            </div>
-            <b>{{name}}</b>
-            <br>
-            <i>{{bio}}</i>
-            <br>
-          </p>
+<body>
+    <div class="search-main col-md-9 col-md-offset-1">
+        <div class="search-header">
+
+            <!-- toggle between students and coaches -->
+            <h1>Find a Coach!</h1>
         </div>
-      </script>
+        <div class="profile-section container-fluid">
+            <div class="row" id="mentors">
+                <script id="mentor-template" type="text/x-handlebars-template">
+                    <div class="profile-mentor col-md-4" data-id="{{_id}}">
+                        <p>
+                            <div>
+                                <img src={{image}} class="logo">
+                            </div>
+                            <b>{{name}}</b>
+                            <br>
+                            <i>{{bio}}</i>
+                            <br>
+                        </p>
+                    </div>
+                </script>
+            </div>
+        </div>
+        <div class="search-navigation col-md-12">
+            <button type="button" class="btn btn-primary">Return to Profile</button>
+            <button type="button" class="btn btn-primary">View More Results</button>
+        </div>
     </div>
-  </div>
-    <div class="search-navigation col-md-12">
-      <button type="button" class="btn btn-primary">Return to Profile</button>
-      <button type="button" class="btn btn-primary">View More Results</button>
-    </div>
-  </div>
 </body>
