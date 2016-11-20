@@ -6,7 +6,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var db = require('./models');
-var Mentor = require('./models/mentor');
+var isMentor;
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
