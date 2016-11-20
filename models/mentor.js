@@ -12,10 +12,13 @@ var MentorSchema = new Schema({
     number: Number,
     areaOfInterest: [String],
     image: String,
-    bio: String,
+    bio: String
+
     // pending: [Student.schema],
     // accepted: [Student.schema]
 });
+
+var defaultImg = "http://www.communiquepr.com/blog/wp-content/uploads/2016/04/iStock_000045459678_Large.jpg";
 
 //pass in a newUser object which will be assigned req.body, then pass req.body into createSecure. THEN you can assign each attribute from newUser objects
 MentorSchema.statics.createSecure = function(newUser, callback) {
@@ -44,38 +47,41 @@ MentorSchema.statics.createSecure = function(newUser, callback) {
                 website: website,
                 number: number,
                 areaOfInterest: areaOfInterest,
-                image: image,
+                image: image||defaultImg,
                 bio: bio
-                // pending: pending,
-                // accepted: accepted
+
+                    // pending: pending,
+                    // accepted: accepted
             }, callback);
         });
     });
 };
 
-MentorSchema.methods.checkPassword = function (password) {
-  // run hashing algorithm (with salt) on password user enters in order to compare with `passwordDigest`
-  return bcrypt.compareSync(password, this.passwordDigest);
+MentorSchema.methods.checkPassword = function(password) {
+    // run hashing algorithm (with salt) on password user enters in order to compare with `passwordDigest`
+    return bcrypt.compareSync(password, this.passwordDigest);
 };
 
 // authenticate user (when user logs in)
-MentorSchema.statics.authenticate = function (email, password, callback) {
- // find user by email entered at log in
- // remember `this` refers to the User for methods defined on userSchema.statics
- this.findOne({email: email}, function (err, foundUser) {
-   console.log(foundUser);
+MentorSchema.statics.authenticate = function(email, password, callback) {
+    // find user by email entered at log in
+    // remember `this` refers to the User for methods defined on userSchema.statics
+    this.findOne({
+        email: email
+    }, function(err, foundUser) {
+        console.log(foundUser);
 
-   // throw error if can't find user
-   if (!foundUser) {
-     console.log('No user with email ' + email);
-     callback("Error: no user found", null);  // better error structures are available, but a string is good enough for now
-   // if we found a user, check if password is correct
-   } else if (foundUser.checkPassword(password)) {
-     callback(null, foundUser);
-   } else {
-     callback("Error: incorrect password", null);
-   }
- });
+        // throw error if can't find user
+        if (!foundUser) {
+            console.log('No user with email ' + email);
+            callback("Error: no user found", null); // better error structures are available, but a string is good enough for now
+            // if we found a user, check if password is correct
+        } else if (foundUser.checkPassword(password)) {
+            callback(null, foundUser);
+        } else {
+            callback("Error: incorrect password", null);
+        }
+    });
 };
 
 var Mentor = mongoose.model('Mentor', MentorSchema);

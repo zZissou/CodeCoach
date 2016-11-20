@@ -1,27 +1,47 @@
+body {
+  font-family: 'Cormorant Garamond', serif;
+
+}
 .navbar {
   margin: 0;
 }
 .our_languages {
   display: inline-block;
 }
+.searchbar {
+  display: inline-block;
+}
 .box {
-  
+
 }
 .logo {
   height: 100px;
   width: 100px;
   overflow: hidden;
 }
+li {
+  padding: 0, 10px;
+  margin-left: 150px;
+  margin-right: 150px;
+  font-style: italic;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+}
 
 b {
-  font-size: 16px;
+  font-size: 20px;
   font-style:
 }
 
 p {
-  font-size: 15px;
+  font-size: 17px;
   font-style: italic;
 }
+
 
 /*Student section on index*/
 .main-indiv-left {

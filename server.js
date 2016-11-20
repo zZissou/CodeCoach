@@ -6,7 +6,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var db = require('./models');
-var Mentor = require('./models/mentor');
+var isMentor;
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
@@ -60,38 +60,61 @@ app.get('/login', function(req, res) {
 // show user profile page
 app.get('/profile', function(req, res) {
     // find the user currently logged in
-    Mentor.findOne({
-        _id: req.session.userId
-    }, function(err, currentUser) {
-        res.render('profile.ejs', {
-            mentor: currentUser
-        })
-    });
+    if (isMentor === true) {
+        db.Mentor.findOne({
+            _id: req.session.userId
+        }, function(err, currentUser) {
+            res.render('profile_mentor.ejs', {
+                mentor: currentUser
+            });
+        });
+    } else {
+        db.Student.findOne({
+            _id: req.session.userId
+        }, function(err, currentUser) {
+            res.render('profile_student.ejs', {
+                student: currentUser
+            });
+        });
+    }
 });
 
 
 // A create user route - creates a new user with a secure password
 app.post('/users', function(req, res) {
-    // use the email and password to authenticate here
-    // Mentor.createSecure(req.body.email, req.body.password, req.body.name, req.body.website, req.body.number, req.body.areaOfInterest, req.body.bio, req.body.image, req.body.pending, req.body.accepted, function(err, user) {
-    //     req.session.userId = user._id;
-    //     res.redirect('/profile');
-    // });
-    db.Mentor.createSecure(req.body, function (err, user) {
-    res.json(user);
-  });
+
+    if (req.body.option === 'Mentor') {
+        db.Mentor.createSecure(req.body, function(err, user) {
+            res.redirect('/login');
+        });
+
+    } else {
+        db.Student.createSecure(req.body, function(err, user) {
+            res.redirect('/login');
+        });
+    }
 });
 
 app.post('/sessions', function(req, res) {
     // use the email and password to authenticate here
-    Mentor.authenticate(req.body.email, req.body.password, function(err, user) {
-      if(err){
-        res.redirect('/login');
-      }else{
-        req.session.userId = user._id;
-        res.redirect('/profile');
-      }
-    });
+        db.Mentor.authenticate(req.body.email, req.body.password, function(err, user) {
+            if (err) {
+                //res.redirect('/login');
+                db.Student.authenticate(req.body.email, req.body.password, function(err, user) {
+                    if (err) {
+                        res.redirect('/login');
+                    } else {
+                        req.session.userId = user._id;
+                        isMentor = false;
+                        res.redirect('/profile');
+                    }
+                });
+            } else {
+                isMentor = true;
+                req.session.userId = user._id;
+                res.redirect('/profile');
+            }
+        });
 });
 
 app.get('/logout', function(req, res) {
