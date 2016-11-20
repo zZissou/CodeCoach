@@ -12,10 +12,13 @@ var MentorSchema = new Schema({
     number: Number,
     areaOfInterest: [String],
     image: String,
-    bio: String,
+    bio: String
+
     // pending: [Student.schema],
     // accepted: [Student.schema]
 });
+
+var defaultImg = "http://www.communiquepr.com/blog/wp-content/uploads/2016/04/iStock_000045459678_Large.jpg";
 
 //pass in a newUser object which will be assigned req.body, then pass req.body into createSecure. THEN you can assign each attribute from newUser objects
 MentorSchema.statics.createSecure = function(newUser, callback) {
@@ -29,7 +32,6 @@ MentorSchema.statics.createSecure = function(newUser, callback) {
     var areaOfInterest = newUser.areaOfInterest;
     var image = newUser.image;
     var bio = newUser.bio;
-
     var MentorModel = this;
 
     // hash password user enters at sign up
@@ -45,8 +47,9 @@ MentorSchema.statics.createSecure = function(newUser, callback) {
                 website: website,
                 number: number,
                 areaOfInterest: areaOfInterest,
-                image: image,
+                image: image||defaultImg,
                 bio: bio
+
                     // pending: pending,
                     // accepted: accepted
             }, callback);

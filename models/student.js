@@ -12,7 +12,10 @@ var StudentSchema = new Schema({
     areaOfInterest: [String],
     bio: String,
     image: String,
+    isMentor: Boolean
 });
+
+var defaultImg = "http://www.suzyashworth.com/wp-content/uploads/2015/05/Fotolia_76168997_S.jpg";
 
 //pass in a newUser object which will be assigned req.body, then pass req.body into createSecure. THEN you can assign each attribute from newUser objects
 StudentSchema.statics.createSecure = function(newUser, callback) {
@@ -42,7 +45,7 @@ StudentSchema.statics.createSecure = function(newUser, callback) {
                 website: website,
                 number: number,
                 areaOfInterest: areaOfInterest,
-                image: image,
+                image: image||defaultImg,
                 bio: bio
             }, callback);
         });
