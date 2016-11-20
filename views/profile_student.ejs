@@ -8,27 +8,37 @@
     <!-- bootstrap css -->
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/profile.css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- <script src="script.js"></script> -->
 
-    <title>Simple Login</title>
+    <title>Personal Profile</title>
 </head>
 
 <body>
+
     <div class="container text-center">
         <div class="row">
-            <div class="col-md-3 col-md-offset-1">
-                <h1>Profile</h1>
-                <hr>
-                <h2>Welcome Student! You're logged in as <%= student.email %>!</h2>
-                <h2><%= student.name %></h2>
+            <a id="logout" type="button" href="/logout" class="btn btn-primary">Log Out</a>
+            <h3>Welcome <b><i><%= student.name %></i></b> ! You're logged in as a <b><i>STUDENT</i></b> !</h3>
+            <br><br>
+            <div class="col-md-3">
                 <div>
                     <img src="<%= student.image %>">
                 </div>
+                <h4><%= student.name %></h4>
+                <h5><i><%= student.email %></i></h5>
+                <br>
+                <div class="btn-group" id="toggle_event_editing">
+                    <button type="button" class="btn btn-info locked_active">Students</button>
+                    <button type="button" class="btn btn-default unlocked_inactive">Mentors</button>
+                </div>
                 <br><br>
-                <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
+                <form action="search.html">
+                    <button type="button" class="btn btn-primary">Search!</button>
+                </form>
             </div>
         </div>
     </div>
