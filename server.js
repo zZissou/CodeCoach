@@ -115,17 +115,6 @@ app.post('/sessions', function(req, res) {
                 res.redirect('/profile');
             }
         });
-    //} else {
-        // db.Student.authenticate(req.body.email, req.body.password, function(err, user) {
-        //     if (err) {
-        //         res.redirect('/login');
-        //     } else {
-        //         req.session.userId = user._id;
-        //         res.redirect('/profile');
-        //     }
-        // });
-
-  //  }
 });
 
 app.get('/logout', function(req, res) {

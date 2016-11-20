@@ -1,18 +1,5 @@
 var db = require("./models");
 
-// var MentorSchema = new Schema({
-//     name: String,
-//     email: String,
-//     website: String,
-//     number: Number,
-//     areaOfInterest: [String],
-//     bio: String,
-//     image: String,
-//     pending: [Student.schema],
-//     accepted: [Student.schema]
-// });
-
-
 var mentorsList = [{
   name: 'Justin Castilla',
   email: 'pxlperfection@gmail.com',
