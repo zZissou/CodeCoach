@@ -55,26 +55,26 @@ function update(req, res) {
 }
 
 function searchMentor(req, res){
-  console.log('searching:', req.query.q)
+  console.log('Searching:', req.query.q);
   var searchName = req.query.q;
   console.log(searchName);
-  db.Mentor.findOne({name: searchName}, function(err, succ){
-       if(err){
-         return console.error(err);
-       }
-       console.log("Sending ", succ);
-       res.json({mentor: succ});
-  });
-  // var queryArr = [];
-  // queryArr.push(req.query.q.split(' '));
 
- //  db.Mentor.search(queryArr, function(err, mentors){
- //    if(err){
- //      console.error(err);
- //    }
- //    res.json(mentors);
- // });
+  db.Mentor.find({}, function(err, succ){
+      var arr =[];
+      console.log(succ);
+      succ.forEach(function(elem){
+        if(elem.areaOfInterest.indexOf(searchName)>-1){
+          arr.push(elem);
+        }
+      });
+       if(err){
+         return console.log(err);
+       }
+       console.log("Sending ", arr);
+       res.json({mentor: arr});
+  });
 }
+
 
 function listAllMentors(req, res) {
     db.Mentor.find({}, function(err, allUsers) {

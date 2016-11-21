@@ -81,36 +81,6 @@ app.get('/profile', function(req, res) {
     }
 });
 
-
-// app.get('/api/areaOfInterest/:id', function(req, res) {
-//     // find the user currently logged in
-//     db.Student.findOne({
-//         _id: req.params.id
-//     }, function(err, currentUser) {
-//       if(err){return console.log("ERR: " , err);}
-//
-//       db.Mentor.find({areaOfInterest: currentUser.areaOfInterest}, function search(err, targetMentors){
-//         console.log('We found ' + targetMentors.length + ' mentors');
-//
-//         res.json(targetMentors);
-//       })
-//     });
-// });
-
-
-// app.post('/search', function(req, res){
-//   db.Mentor.search(req.body, function(err, user){
-//     if(err){
-//       console.log(err);
-//     }else{
-//       res.render('search.ejs', {
-//           mentor: user
-//       });
-//     }
-//   });
-// });
-
-
 // A create user route - creates a new user with a secure password
 app.post('/users', function(req, res) {
 

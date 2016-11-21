@@ -55,7 +55,7 @@
                 <div class="row">
                     <div id="custom-search-input">
                         <div class="input-group col-md-10 col-md-offset-1">
-                            <form class="search" id="searchForm" action="/search">
+                            <form class="search" id="searchMentor" action="/search">
                                 <input type="search" name="q" placeholder="Keywords">
                             </form>
                         </div>
@@ -65,24 +65,25 @@
             <h4 class="main-title">Mentors</h4>
             <div class="row">
                 <div id="mentors">
-                  <script id="mentor-template" type="text/x-handlebars-template">
-                      <div class="profile-mentor col-md-3 col-md-offset-1" data-id="{{_id}}">
-                              <div>
-                                  <img src={{image}} class="logo">
-                              </div>
-                              <b id="name">{{name}}</b>
-                              <br>
-                              <h4>Area of Interest: </h4><i>{{areaOfInterest}}</i>
-                              <br>
-                              <h4>Bio: </h4>
-                              <b><i>{{bio}}</i></b>
-                      </div>
-                  </script>
+
                 </div>
             </div>
         </div>
     </div>
     </div>
+    <script id="mentor-template" type="text/x-handlebars-template">
+        <div class="profile-mentor col-md-3 col-md-offset-1" data-id="{{_id}}">
+                <div>
+                    <img src={{image}} class="logo">
+                </div>
+                <b id="name">{{name}}</b>
+                <br>
+                <h4>Area of Interest: </h4><i>{{areaOfInterest}}</i>
+                <br>
+                <h4>Bio: </h4>
+                <b><i>{{bio}}</i></b>
+        </div>
+    </script>
 </body>
 
 </html>
