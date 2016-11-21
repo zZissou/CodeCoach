@@ -6,7 +6,7 @@ var mentorsList = [{
   number: '1234567890',
   website: 'http://www.justincastilla.com',
   areaOfInterest: ['Java', 'Javascript'],
-  bio: 'I like tacos!',
+  bio: 'Over 10 years of experience in technical sales, team management, and deadline-oriented project development. I am proficient in Java, C, and Front End Development. I laugh in the face of danger.',
   image: 'https://avatars0.githubusercontent.com/u/4304660?v=3&s=400'
 }, {
   name: 'Jean Weatherwax',
@@ -14,7 +14,7 @@ var mentorsList = [{
   number: '0987654321',
   website: 'https://github.com/jeanmw',
   areaOfInterest: ['Python', 'Javascript'],
-  bio: "I'm currently a lead Android Immersive instructor and a Web Immersive Instructor in San Francisco. Previously I worked at the successful mobile deeplinking company Branch Metrics in Palo Alto. Prior to this, I worked as an electrical and computer engineer at HP Labs. During a Marshall Scholarship in the UK, I completed an MSc in the Space Science & Technology at UCL in London, as well as an MSc at Imperial College London in Analogue and Digital Integrated Circuit Design. I have an Electrical Engineering B.S. undergraduate degree from the University of South Florida and work experience in variety of software and electronics-related fields. I also have experience in Android development and web development from personal projects and from Branch Metrics.",
+  bio: "I'm currently a lead Android Immersive instructor and a Web Immersive Instructor in San Francisco. Previously I worked at the successful mobile deeplinking company Branch Metrics in Palo Alto. Prior to this, I worked as an electrical and computer engineer at HP Labs.",
   image: 'https://avatars.slack-edge.com/2016-05-27/46352131427_8202e1cffdceea3d50bf_512.jpg'
 }, {
   name: 'Andrew Cordivari',
@@ -39,28 +39,31 @@ var mentorsList = [{
   website: 'https://github.com/dylan_conroy',
   areaOfInterest: ['C++', 'Ruby', 'Javascript'],
   bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.',
-  image: 'https://s3.amazonaws.com/uifaces/faces/twitter/felipeapiress/128.jpg'
+  image: 'http://mhalabs.org/wp-content/uploads/upme/1451456913_brodie.jpg'
 }, {
   name: 'Janet Kreiger PhD',
   email: 'janet_krieger89@gmail.com',
   number: '5082849882',
   website: 'https://github.com/janet2',
   areaOfInterest: ['Javascript', 'PHP', 'C++', 'Ruby'],
-  image: 'https://s3.amazonaws.com/uifaces/faces/twitter/sunshinedgirl/128.jpg'
+  bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.',
+  image: 'http://www.coastguardfoundation.org/storage/helena_grenot.jpg'
 }, {
   name: 'Nilda Tremblay',
   email: 'nelda48@yahoo.com',
   number: '6581584505',
   website: 'https://github.com/nelda_tremblay99',
-  areaOfInterest: ['Python', 'C++'],
-  image: 'https://s3.amazonaws.com/uifaces/faces/twitter/IsaryAmairani/128.jpg'
+  areaOfInterest: ['Python'],
+  bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.',
+  image: 'http://rdanieldesign.github.io/cloud9-feed/images/pic1.jpg'
 }, {
   name: 'Chet Weimann',
   email: 'chet.weimann@hotmail.com',
   number: '1930338366',
   website: 'https:github.com/chet_weimann52',
   areaOfInterest: ['PHP', 'C++', 'Javascript'],
-  image: 'https://s3.amazonaws.com/uifaces/faces/twitter/ooomz/128.jpg'
+  bio: 'Ut dictum ut nisl nec mollis. Fusce congue ligula ligula, sed molestie nunc feugiat a. Donec sed sapien cursus, molestie risus ac, semper arcu. Integer blandit maximus dictum. Nam placerat ac felis sit amet elementum. Aenean in dictum dolor.',
+  image: 'http://trofii.com/uploads/profileimg/zameer_7qnd73.jpg'
 }];
 var studentsList = [{
   name: 'Kyle Russell',

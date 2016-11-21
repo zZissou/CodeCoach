@@ -23,21 +23,21 @@
             <a id="logout" type="button" href="/logout" class="btn btn-primary">Log Out</a>
             <h3>Welcome <b><i><%= mentor.name %></i></b> ! You're logged in as a <i><b>MENTOR</b></i> !</h3>
             <br><br>
-            <div class="col-md-3">
+            <div class="col-md-5 col-md-offset-1">
                 <div>
                     <img src="<%= mentor.image %>">
                 </div>
                 <h4><%= mentor.name %></h4>
                 <h5><i><%= mentor.email %></i></h5>
                 <br>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
                 <div class="btn-group" id="toggle_event_editing">
                     <button type="button" class="btn btn-info locked_active">Students</button>
                     <button type="button" class="btn btn-default unlocked_inactive">Mentors</button>
                 </div>
                 <br><br>
-                <form action="search.html">
-                    <button type="button" class="btn btn-primary">Search</button>
-                </form>
+                <a id="search" type="button" href="/listall" class="btn btn-primary">Search</a>
             </div>
         </div>
     </div>

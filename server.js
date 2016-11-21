@@ -25,6 +25,7 @@ app.use(session({
 }));
 
 var controllers = require('./controllers');
+var id;
 
 
 /**********
@@ -39,17 +40,27 @@ app.get('/', function homepage(req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/api', controllers.mentors.index);
-
 app.get('/api/mentors', controllers.mentors.index);
-app.get('/api/mentors/:mentorId', controllers.mentors.show);
-app.post('api/mentors', controllers.mentors.create);
-app.delete('/api/mentors/:mentorsId', controllers.mentors.destroy);
-app.put('/api/mentors/:mentorsId', controllers.mentors.update);
+app.get('/api/mentors/:id', controllers.mentors.show);
+app.delete('/api/mentors/:id', controllers.mentors.destroy);
+app.put('/api/mentors/:id', controllers.mentors.update);
+
+app.get('/api/students', controllers.students.index);
+app.get('/api/students/:id', controllers.students.show);
+app.delete('/api/students/:id', controllers.students.destroy);
+app.put('/api/students/:id', controllers.students.update);
 
 // signup route (renders signup view)
 app.get('/signup', function(req, res) {
     res.render('signup');
+});
+
+app.get('/listall', function(req, res) {
+    db.Mentor.find({}, function(err, allUsers) {
+        res.render('listAllMentors.ejs', {
+            mentor: allUsers
+        });
+    });
 });
 
 // login route with placeholder response
@@ -79,6 +90,59 @@ app.get('/profile', function(req, res) {
     }
 });
 
+// app.get('/api/mentors/:areaOfInterest', function(req, res) {
+// //     console.log(req.query.areaOfInterest);
+// //     db.Mentor.search(req.body, function(err, user) {
+// //         if (err) {
+// //             console.log(err);
+// //         } else {
+// //             res.json({
+// //                 mentors: user
+// //             });
+// //         }
+// //     });
+// });
+// app.get('/api/languages/:id', function(req, res) {
+//     // find the user currently logged in
+//     db.Student.findOne({
+//         _id: req.params.id
+//     }, function(err, currentUser) {
+//       if(err){return console.log("ERR: " , err);}
+//
+//       db.Mentor.find({areaOfInterest: currentUser.areaOfInterest}, function search(err, targetMentors){
+//         console.log('We found ' + targetMentors.length + ' mentors');
+//
+//         res.json(targetMentors);
+//       })
+//     });
+// });
+
+app.get('/search', function searching(req, res) {
+    console.log('searching:', req.query.areaOfInterest);
+    var queryArr = [];
+    queryArr.push(req.query.areaOfInterest);
+    db.Mentor.search(queryArr, function(err, mentors) {
+        if (err) {
+            console.error(err);
+        }
+        res.render('search.ejs', {
+            mentor: mentors
+        });
+    });
+});
+
+// app.get('/search', function(req, res){
+//   db.Mentor.search(req.body, function(err, user){
+//     if(err){
+//       console.log(err);
+//     }else{
+//       res.render('search.ejs', {
+//           mentor: user
+//       });
+//     }
+//   });
+// });
+
 
 // A create user route - creates a new user with a secure password
 app.post('/users', function(req, res) {
@@ -97,24 +161,25 @@ app.post('/users', function(req, res) {
 
 app.post('/sessions', function(req, res) {
     // use the email and password to authenticate here
-        db.Mentor.authenticate(req.body.email, req.body.password, function(err, user) {
-            if (err) {
-                //res.redirect('/login');
-                db.Student.authenticate(req.body.email, req.body.password, function(err, user) {
-                    if (err) {
-                        res.redirect('/login');
-                    } else {
-                        req.session.userId = user._id;
-                        isMentor = false;
-                        res.redirect('/profile');
-                    }
-                });
-            } else {
-                isMentor = true;
-                req.session.userId = user._id;
-                res.redirect('/profile');
-            }
-        });
+    db.Mentor.authenticate(req.body.email, req.body.password, function(err, user) {
+        if (err) {
+            //res.redirect('/login');
+            db.Student.authenticate(req.body.email, req.body.password, function(err, user) {
+                if (err) {
+                    res.redirect('/login');
+                } else {
+                    req.session.userId = user._id;
+                    id = user._id;
+                    isMentor = false;
+                    res.redirect('/profile');
+                }
+            });
+        } else {
+            isMentor = true;
+            req.session.userId = user._id;
+            res.redirect('/profile');
+        }
+    });
 });
 
 app.get('/logout', function(req, res) {

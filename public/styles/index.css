@@ -15,14 +15,14 @@ body {
 
 }
 .logo {
-  height: 100px;
-  width: 100px;
+  height: 140px;
+  width: 140px;
   overflow: hidden;
 }
 li {
   padding: 0, 10px;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin-left: 140px;
+  margin-right: 140px;
   font-style: italic;
 }
 
@@ -34,7 +34,6 @@ h1 {
 
 b {
   font-size: 20px;
-  font-style:
 }
 
 p {

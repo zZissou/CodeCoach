@@ -12,7 +12,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- <script src="script.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
     <title>Personal Profile</title>
 </head>
@@ -22,23 +22,52 @@
     <div class="container text-center">
         <div class="row">
             <a id="logout" type="button" href="/logout" class="btn btn-primary">Log Out</a>
-            <h3>Welcome <b><i><%= student.name %></i></b> ! You're logged in as a <b><i>STUDENT</i></b> !</h3>
+            <h3>Welcome <b><i><%= student.name %></i></b> ! You're logged in as a <b><i>STUDENT</i></b> !</h2>
             <br><br>
-            <div class="col-md-3">
+            <div class="col-md-3 col-md-offset-1">
                 <div>
                     <img src="<%= student.image %>">
                 </div>
                 <h4><%= student.name %></h4>
                 <h5><i><%= student.email %></i></h5>
                 <br>
-                <div class="btn-group" id="toggle_event_editing">
-                    <button type="button" class="btn btn-info locked_active">Students</button>
-                    <button type="button" class="btn btn-default unlocked_inactive">Mentors</button>
-                </div>
-                <br><br>
-                <form action="search.html">
-                    <button type="button" class="btn btn-primary">Search!</button>
+                <br>
+            </div>
+            <div class="col-md-7 col-md-offset-1">
+                <h3>Do you have a language you would like to learn? <b>Let's search! </b></h3>
+                <br>
+                <button class="btn btn-default" data-toggle="collapse" data-target="#search-mentor">Search</button>
+                <form class="form collapse" id="search-mentor">
+                    <br>
+                    <div class="form-group">
+                        <input type="text" name="areaOfInterest" class="form-control" placeholder="Area of Interest">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-default btn-block" value="Submit">
+                    </div>
                 </form>
+                <a id="listall" type="button" href="/listall" class="btn btn-primary">List All Mentors</a>
+                <br><br>
+                <div class="profile-section container-fluid">
+                    <div class="row" id="mentors">
+                        <script id="mentor-template" type="text/x-handlebars-template">
+                            <div class="profile-mentor col-md-3 col-md-offset-1" data-id="{{_id}}">
+                                <p>
+                                    <div>
+                                        <img src={{image}} class="logo">
+                                    </div>
+                                    <b id="name">{{name}}</b>
+                                    <br>
+                                    <h4>Area of Interest: </h4><i>{{areaOfInterest}}</i>
+                                    <br>
+                                    <h4>Bio: </h4>
+                                    <p><b><i>{{bio}}</i></b><p>
+                                    <br>
+                                </p>
+                            </div>
+                        </script>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

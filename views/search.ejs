@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CodeCoach - Search Results</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="scripts/app.js"></script>
+</head>
+
+<body>
+    <div class="search-main col-md-9 col-md-offset-1">
+        <div class="search-header">
+
+            <!-- toggle between students and coaches -->
+            <h1>Meet Our Mentor Team</h1>
+        </div>
+        <hr><br>
+        <div class="search-navigation col-md-11 col-md-offset-1">
+            <a type="button" href="/profile" class="btn btn-primary">Return to Profile</a>
+        </div>
+        <br><br>
+        <div class="profile-section container-fluid">
+            <div class="row" id="mentors">
+                <script id="mentor-template" type="text/x-handlebars-template">
+                    <div class="profile-mentor col-md-3 col-md-offset-1" data-id="{{_id}}">
+                        <p>
+                            <div>
+                                <img src={{image}} class="logo">
+                            </div>
+                            <b id="name">{{name}}</b>
+                            <br>
+                            <h4>Area of Interest: </h4><i>{{areaOfInterest}}</i>
+                            <br>
+                            <h4>Bio: </h4>
+                            <p><b><i>{{bio}}</i></b><p>
+                            <br>
+                        </p>
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+</body>

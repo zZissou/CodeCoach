@@ -1,5 +1,6 @@
 var mongoose = require("mongoose"),
     bcrypt = require('bcrypt');
+  //  searchable = require('mongoose-searchable');
 
 var Schema = mongoose.Schema;
 
@@ -11,9 +12,10 @@ var StudentSchema = new Schema({
     number: Number,
     areaOfInterest: [String],
     bio: String,
-    image: String,
-    isMentor: Boolean
+    image: String
 });
+
+//StudentSchema.plugin(searchable);
 
 var defaultImg = "http://www.suzyashworth.com/wp-content/uploads/2015/05/Fotolia_76168997_S.jpg";
 
