@@ -2,6 +2,62 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap css -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/profile.css">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- <script src="scripts.js"></script> -->
+
+  <title>Personal Profile</title>
+</head>
+
+<body>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1>Profile</h1>
+        <h2>Hey <%= mentor.name %>! How's it going?</h2>
+      </div>
+      <div class="main-section-left col-md-6">
+        <div class="pending-requests">
+          <h2>Pending</h2>
+        </div>
+        <div class="accepted-requests">
+          <h2>Accepted</h2>
+        </div>
+      </div>
+      <div class="main-section-right col-md-6">
+          <div class="my-info">
+            <h2>Oh hey! It's you!</h2>
+            <div class="col-md-6">
+              <p><%= mentor.name %></p>
+              <p><%= mentor.email %></p>
+              <p><%= mentor.number %></p>
+              <p><%= mentor.website %></p>
+            </div>
+            <div class="col-md-6">
+              <img src="<% mentor.image %>"></img>
+              <p><%= mentor.areaOfInterest %></p>
+            </div>
+            <button type="button" class="editBtn btn btn-primary" data-id="{{_id}}">Edit</button>
+            <button type="button" class="deleteBtn btn btn-danger" data-id="{{_id}}">Delete</button>
+          </div>
+      </div>
+      <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
+      <form action="search.html">
+        <button type="button" class="btn btn-primary">Search For Peeps!</button>
+      </form>
+    </div>
+  </div>
+  </div>
+=======
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -41,6 +97,7 @@
             </div>
         </div>
     </div>
+>>>>>>> master
 </body>
 
 </html>

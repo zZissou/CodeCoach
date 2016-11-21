@@ -5,13 +5,28 @@ body {
 .navbar {
   margin: 0;
 }
+
+
+/*about us section*/
+.about-us {
+  text-align: center;
+}
+.about-us p {
+  text-align: center;
+  font-size: 150%;
+  margin-top: 50px;
+}
 .our_languages {
-  display: inline-block;
 }
 .searchbar {
   display: inline-block;
 }
 .box {
+<<<<<<< HEAD
+  border: 2px solid black;
+  margin: 10px;
+=======
+>>>>>>> master
 
 }
 .logo {
@@ -48,17 +63,22 @@ p {
   padding: 5px;
   height: 200px;
   margin-bottom: 20px;
+  position: relative;
+}
+.main-indiv-left h3 {
+  margin-top: 0;
+  position: absolute;
+}
+.main-indiv-left p {
+  position: absolute;
+  left: 110px;
+  bottom: 25px;
+  right:
 }
 .main-indiv-left .logo {
-  float: left;
-}
-.tester {
-  padding-right: 0;
-}
+  position: absolute;
+  top: 55px;
 
-.test {
-  padding: 0;
-  margin: 0;
 }
 /*Coach section on index*/
 .main-indiv-right {
@@ -67,7 +87,6 @@ p {
   height: 200px;
   margin-bottom: 20px
 }
-
 .main-indiv-right .logo {
   float: right;
   margin-left: 5px;

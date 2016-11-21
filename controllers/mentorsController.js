@@ -36,6 +36,18 @@ function destroy(req, res) {
 }
 
 function update(req, res) {
+<<<<<<< HEAD
+  console.log('updating with data', req.body);
+  db.Mentor.findbyId(req.params.mentorId, function(err, foundMentor) {
+    if (err) { console.log('mentorsController.update error', err); }
+    foundMentor.name = req.body.name;
+    foundMentor.email = req.body.email;
+    foundMentor.website = req.body.website;
+    foundMentor.number = req.body.number;
+    foundMentor.save(function(err, savedMentor) {
+      if (err) { console.log('saving altered mentor failed'); }
+      res.json(savedMentor);
+=======
     console.log('updating with data', req.body);
     db.Mentor.findbyId(req.params.id, function(err, foundMentor) {
         if (err) {
@@ -73,6 +85,7 @@ function listAllMentors(req, res) {
         res.render('listAllMentors.ejs', {
             mentor: allUsers
         });
+>>>>>>> master
     });
 }
 
