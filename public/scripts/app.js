@@ -1,6 +1,17 @@
+console.log("app.js is linked!");
 var template;
+var $searchMentor;
 
 $(document).ready(function() {
+  // $.ajax({
+  //   method: 'GET',
+  //   url: '/api/mentors',
+  //   type: 'json',
+  //   success: handleGetMentorSuccess,
+  //   error: handleGetMentorError
+  // });
+
+  //
   $.ajax({
     method: 'GET',
     url: '/api/mentors',
@@ -8,6 +19,7 @@ $(document).ready(function() {
     success: handleGetMentorSuccess,
     error: handleGetMentorError
   });
+
 });
 
 function handleGetMentorSuccess(data) {

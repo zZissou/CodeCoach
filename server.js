@@ -6,6 +6,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var db = require('./models');
+var controllers = require('./controllers');
 var isMentor;
 
 // serve static files from public folder
@@ -24,9 +25,6 @@ app.use(session({
     } // 30 minute cookie lifespan (in milliseconds)
 }));
 
-var controllers = require('./controllers');
-
-
 /**********
  * ROUTES *
  **********/
@@ -39,13 +37,17 @@ app.get('/', function homepage(req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/api', controllers.mentors.index);
-
 app.get('/api/mentors', controllers.mentors.index);
-app.get('/api/mentors/:mentorId', controllers.mentors.show);
-app.post('api/mentors', controllers.mentors.create);
-app.delete('/api/mentors/:mentorsId', controllers.mentors.destroy);
-app.put('/api/mentors/:mentorsId', controllers.mentors.update);
+app.get('/api/mentors/:id', controllers.mentors.show);
+app.delete('/api/mentors/:id', controllers.mentors.destroy);
+app.put('/api/mentors/:id', controllers.mentors.update);
+app.get('/search', controllers.mentors.searchMentor);
+app.get('/listall', controllers.mentors.listAllMentors);
+
+app.get('/api/students', controllers.students.index);
+app.get('/api/students/:id', controllers.students.show);
+app.delete('/api/students/:id', controllers.students.destroy);
+app.put('/api/students/:id', controllers.students.update);
 
 // signup route (renders signup view)
 app.get('/signup', function(req, res) {
@@ -80,6 +82,35 @@ app.get('/profile', function(req, res) {
 });
 
 
+// app.get('/api/languages/:id', function(req, res) {
+//     // find the user currently logged in
+//     db.Student.findOne({
+//         _id: req.params.id
+//     }, function(err, currentUser) {
+//       if(err){return console.log("ERR: " , err);}
+//
+//       db.Mentor.find({areaOfInterest: currentUser.areaOfInterest}, function search(err, targetMentors){
+//         console.log('We found ' + targetMentors.length + ' mentors');
+//
+//         res.json(targetMentors);
+//       })
+//     });
+// });
+
+
+// app.post('/search', function(req, res){
+//   db.Mentor.search(req.body, function(err, user){
+//     if(err){
+//       console.log(err);
+//     }else{
+//       res.render('search.ejs', {
+//           mentor: user
+//       });
+//     }
+//   });
+// });
+
+
 // A create user route - creates a new user with a secure password
 app.post('/users', function(req, res) {
 
@@ -97,24 +128,25 @@ app.post('/users', function(req, res) {
 
 app.post('/sessions', function(req, res) {
     // use the email and password to authenticate here
-        db.Mentor.authenticate(req.body.email, req.body.password, function(err, user) {
-            if (err) {
-                //res.redirect('/login');
-                db.Student.authenticate(req.body.email, req.body.password, function(err, user) {
-                    if (err) {
-                        res.redirect('/login');
-                    } else {
-                        req.session.userId = user._id;
-                        isMentor = false;
-                        res.redirect('/profile');
-                    }
-                });
-            } else {
-                isMentor = true;
-                req.session.userId = user._id;
-                res.redirect('/profile');
-            }
-        });
+    db.Mentor.authenticate(req.body.email, req.body.password, function(err, user) {
+        if (err) {
+            //res.redirect('/login');
+            db.Student.authenticate(req.body.email, req.body.password, function(err, user) {
+                if (err) {
+                    res.redirect('/login');
+                } else {
+                    req.session.userId = user._id;
+                    id = user._id;
+                    isMentor = false;
+                    res.redirect('/profile');
+                }
+            });
+        } else {
+            isMentor = true;
+            req.session.userId = user._id;
+            res.redirect('/profile');
+        }
+    });
 });
 
 app.get('/logout', function(req, res) {
