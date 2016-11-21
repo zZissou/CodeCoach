@@ -1,6 +1,5 @@
 var mongoose = require("mongoose"),
-    bcrypt = require('bcrypt'),
-    searchable = require('mongoose-searchable');
+    bcrypt = require('bcrypt');
 
 var Schema = mongoose.Schema,
     Student = require('./student.js');
@@ -14,12 +13,9 @@ var MentorSchema = new Schema({
     areaOfInterest: [String],
     image: String,
     bio: String
-
     // pending: [Student.schema],
     // accepted: [Student.schema]
 });
-
-MentorSchema.plugin(searchable);
 
 var defaultImg = "http://www.communiquepr.com/blog/wp-content/uploads/2016/04/iStock_000045459678_Large.jpg";
 
@@ -32,7 +28,7 @@ MentorSchema.statics.createSecure = function(newUser, callback) {
     var name = newUser.name;
     var website = newUser.website;
     var number = newUser.number;
-    var areaOfInterest = newUser.areaOfInterest;
+    var areaOfInterest = newUser.areaOfInterest.split(", ");
     var image = newUser.image;
     var bio = newUser.bio;
     var MentorModel = this;
