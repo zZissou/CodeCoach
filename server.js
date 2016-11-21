@@ -6,7 +6,10 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var db = require('./models');
+<<<<<<< HEAD
+=======
 var controllers = require('./controllers');
+>>>>>>> master
 var isMentor;
 
 // serve static files from public folder
@@ -63,6 +66,23 @@ app.get('/login', function(req, res) {
 app.get('/profile', function(req, res) {
     // find the user currently logged in
     if (isMentor === true) {
+<<<<<<< HEAD
+      db.Mentor.findOne({
+        _id: req.session.userId
+      }, function(err, currentUser) {
+        res.render('profile_mentor.ejs', {
+          mentor: currentUser
+        });
+      };
+    } else {
+      db.Student.findOne({
+        _id: req.session.userId
+      }, function(err, currentUser) {
+        res.render('profile_student.ejs', {
+          student: currentUser
+        });
+      });
+=======
         db.Mentor.findOne({
             _id: req.session.userId
         }, function(err, currentUser) {
@@ -78,6 +98,7 @@ app.get('/profile', function(req, res) {
                 student: currentUser
             });
         });
+>>>>>>> master
     }
 });
 
@@ -114,6 +135,18 @@ app.get('/profile', function(req, res) {
 // A create user route - creates a new user with a secure password
 app.post('/users', function(req, res) {
 
+<<<<<<< HEAD
+  if (req.body.option === 'Mentor') {
+    db.Mentor.createSecure(req.body, funciton(err, user) {
+      res.redirect('/login');
+    });
+
+  } else {
+    db.Student.createSecure(req.body, function (err, user) {
+      res.redirect('/login');
+    });
+  }
+=======
     if (req.body.option === 'Mentor') {
         db.Mentor.createSecure(req.body, function(err, user) {
             res.redirect('/login');
@@ -124,11 +157,30 @@ app.post('/users', function(req, res) {
             res.redirect('/login');
         });
     }
+>>>>>>> master
 });
 
 app.post('/sessions', function(req, res) {
     // use the email and password to authenticate here
     db.Mentor.authenticate(req.body.email, req.body.password, function(err, user) {
+<<<<<<< HEAD
+      if (err) {
+        //res.redirect('/login');
+        db.Student.authenticate(req.body.email req.body.password, function(err, user) {
+          if (err) {
+            res.redirect('/login');
+          } else {
+              req.session.userId = user._id;
+              isMentor = false;
+              res.redirect('/profile');
+          }
+        });
+      } else {
+        isMentor = true;
+        req.session.userId = user._id;
+        res.redirect('/profile');
+      }
+=======
         if (err) {
             //res.redirect('/login');
             db.Student.authenticate(req.body.email, req.body.password, function(err, user) {
@@ -147,6 +199,7 @@ app.post('/sessions', function(req, res) {
             res.redirect('/profile');
         }
     });
+>>>>>>> master
 });
 
 app.get('/logout', function(req, res) {
@@ -154,6 +207,16 @@ app.get('/logout', function(req, res) {
     req.session.userId = null;
     // redirect to login (for now)
     res.redirect('/login');
+});
+
+app.delete('/api/mentors/:id', function (req, res) {
+  console.log('mentors delete', req.params);
+  var mentorId = req.params.id;
+  db.Mentor.findOneAndRemove({ _id: mentorId},
+  function (err, deletedMentor) {
+    res.redirect('/index');
+  });
+
 });
 
 // listen on port 3000
