@@ -1,4 +1,6 @@
+console.log("app.js is linked!");
 var template;
+<<<<<<< HEAD
 var Handlebars;
 var $mentorsList;
 var allMentors = [];
@@ -6,6 +8,20 @@ var allMentors = [];
 $(document).ready(function() {
 
   $mentorsList = $('#mentorTarget');
+=======
+var $searchMentor;
+
+$(document).ready(function() {
+  // $.ajax({
+  //   method: 'GET',
+  //   url: '/api/mentors',
+  //   type: 'json',
+  //   success: handleGetMentorSuccess,
+  //   error: handleGetMentorError
+  // });
+
+  //
+>>>>>>> master
   $.ajax({
     method: 'GET',
     url: '/api/mentors',
@@ -14,6 +30,7 @@ $(document).ready(function() {
     error: handleGetMentorError
   });
 
+<<<<<<< HEAD
   $.ajax({
     method: 'GET',
     url: '/api/students',
@@ -31,6 +48,8 @@ $(document).ready(function() {
       error: deleteMentorError
     });
   });
+=======
+>>>>>>> master
 });
 
 function handleGetMentorSuccess(data) {
