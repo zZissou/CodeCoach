@@ -1,7 +1,11 @@
 var template;
 var Handlebars;
+var $mentorsList;
+var allMentors = [];
 
 $(document).ready(function() {
+
+  $mentorsList = $('#mentorTarget');
   $.ajax({
     method: 'GET',
     url: '/api/mentors',
@@ -16,6 +20,16 @@ $(document).ready(function() {
     type: 'json',
     success: handleGetStudentSuccess,
     error: handleGetStudentError
+  });
+
+  $mentorsList.on('click', '.deleteBtn', function() {
+    console.log('clicked delete button to', '/api/mentors/'+$(this).attr('data-id'),
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/mentors/'+$(this.).attr('data-id'),
+      success: deleteMentorSuccess,
+      error: deleteMentorError
+    });
   });
 });
 
@@ -65,3 +79,19 @@ function renderStudent(student) {
   var template = Handlebars.compile(source);
   var profileHtml = template(profile);
   $('#profiles').prepend(profileHtml);
+}
+
+function deleteMentorSuccess(json) {
+  var mentor = json;
+  console.log(json);
+  var mentorId = mentor._id;
+  console.log('delete mentor', mentorId);
+  //find the mentor with the correct Id and remove it from mentorsList
+  for (var index = 0; index < allMentors.length; index++) {
+    if (allMentors[index]._id === mentorId) {
+      allMentors.splice(index, 1)
+      break;
+    }
+  }
+  render();
+}

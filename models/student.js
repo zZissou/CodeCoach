@@ -46,7 +46,7 @@ StudentSchema.statics.createSecure = function(newUser, callback) {
         website: website,
         number: number,
         areaOfInterest: areaOfInterest,
-        image: image||defaultImg;
+        image: image||defaultImg,
         bio: bio
       }, callback);
     });

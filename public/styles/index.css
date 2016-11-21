@@ -56,20 +56,11 @@ p {
   left: 110px;
   bottom: 25px;
   right:
-
 }
 .main-indiv-left .logo {
   position: absolute;
   top: 55px;
 
-}
-.tester {
-  padding-right: 0;
-}
-
-.test {
-  padding: 0;
-  margin: 0;
 }
 /*Coach section on index*/
 .main-indiv-right {
@@ -78,8 +69,6 @@ p {
   height: 200px;
   margin-bottom: 20px
 }
-
-
 .main-indiv-right .logo {
   float: right;
   margin-left: 5px;

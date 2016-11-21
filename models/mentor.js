@@ -47,8 +47,8 @@ MentorSchema.statics.createSecure = function(newUser, callback) {
         website: website,
         number: number,
         areaOfInterest: areaOfInterest,
-        image: image || defaultImg,
-        bio: bio,
+        image: image||defaultImg,
+        bio: bio
 
         // pending: pending,
         // accepted: accepted
@@ -64,24 +64,24 @@ MentorSchema.methods.checkPassword = function(password) {
 
 // authenticate user (when user logs in)
 MentorSchema.statics.authenticate = function(email, password, callback) {
-  // find user by email entered at log in
-  // remember `this` refers to the User for methods defined on userSchema.statics
-  this.findOne({
-    email: email
-  }, function(err, foundUser) {
-    console.log(foundUser);
+    // find user by email entered at log in
+    // remember `this` refers to the User for methods defined on userSchema.statics
+    this.findOne({
+        email: email
+    }, function(err, foundUser) {
+        console.log(foundUser);
 
-    // throw error if can't find user
-    if (!foundUser) {
-      console.log('No user with email ' + email);
-      callback("Error: no user found", null); // better error structures are available, but a string is good enough for now
-      // if we found a user, check if password is correct
-    } else if (foundUser.checkPassword(password)) {
-      callback(null, foundUser);
-    } else {
-      callback("Error: incorrect password", null);
-    }
-  });
+        // throw error if can't find user
+        if (!foundUser) {
+            console.log('No user with email ' + email);
+            callback("Error: no user found", null); // better error structures are available, but a string is good enough for now
+            // if we found a user, check if password is correct
+        } else if (foundUser.checkPassword(password)) {
+            callback(null, foundUser);
+        } else {
+            callback("Error: incorrect password", null);
+        }
+    });
 };
 
 var Mentor = mongoose.model('Mentor', MentorSchema);
