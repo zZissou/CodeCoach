@@ -82,7 +82,7 @@ app.get('/profile', function(req, res) {
 });
 
 
-// app.get('/api/languages/:id', function(req, res) {
+// app.get('/api/areaOfInterest/:id', function(req, res) {
 //     // find the user currently logged in
 //     db.Student.findOne({
 //         _id: req.params.id
