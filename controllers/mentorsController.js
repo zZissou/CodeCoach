@@ -56,16 +56,24 @@ function update(req, res) {
 
 function searchMentor(req, res){
   console.log('searching:', req.query.q)
-  var queryArr = [];
-  queryArr.push(req.query.q);
-  queryArr.push(req.query.q.split(' '));
+  var searchName = req.query.q;
+  console.log(searchName);
+  db.Mentor.findOne({name: searchName}, function(err, succ){
+       if(err){
+         return console.error(err);
+       }
+       console.log("Sending ", succ);
+       res.json({mentor: succ});
+  });
+  // var queryArr = [];
+  // queryArr.push(req.query.q.split(' '));
 
-  db.Mentor.search(queryArr, function(err, mentors){
-    if(err){
-      console.error(err);
-    }
-    res.json(mentors);
- });
+ //  db.Mentor.search(queryArr, function(err, mentors){
+ //    if(err){
+ //      console.error(err);
+ //    }
+ //    res.json(mentors);
+ // });
 }
 
 function listAllMentors(req, res) {
