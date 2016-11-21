@@ -16,6 +16,7 @@ $(document).ready(function() {
         });
         $('#mentors').empty();
     });
+    $()
 });
 
 function handleGetMentorSuccess(data) {
@@ -25,7 +26,6 @@ function handleGetMentorSuccess(data) {
         console.log("Cannot find a mentor!");
     } else {
       for (mentorProfile of data.mentor) {
-        console.log(mentorProfile)
         renderMentor(mentorProfile);
       }
     }

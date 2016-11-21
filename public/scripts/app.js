@@ -1,6 +1,5 @@
 console.log("app.js is linked!");
 var template;
-var $searchMentor;
 
 $(document).ready(function() {
 
@@ -10,6 +9,14 @@ $(document).ready(function() {
     type: 'json',
     success: handleGetMentorSuccess,
     error: handleGetMentorError
+  });
+
+  $.ajax({
+    method: 'GET',
+    url: '/api/students',
+    type: 'json',
+    success: handleGetStudentSuccess,
+    error: handleGetStudentError
   });
 
 });
@@ -31,4 +38,25 @@ function renderMentor(mentor){
     var template = Handlebars.compile(source);
     var mentorHtml = template(mentor);
     $('#mentors').prepend(mentorHtml);
+}
+
+//student stuff
+function handleGetStudentSuccess(data) {
+  var receivedStudent = data.students;
+  console.log(data);
+  receivedStudent.forEach(function renderOneStudent(student) {
+    renderStudent(student);
+  });
+}
+
+function handlegetStudentError(a, b, c) {
+  console.log("Cannot get the json file!");
+}
+
+//should we differentiate?
+function renderStudent(student) {
+  var source = $('#student-template').html();
+  var template = Handlebars.compile(source);
+  var profileHtml = template(profile);
+  $('#profiles').prepend(profileHtml);
 }
