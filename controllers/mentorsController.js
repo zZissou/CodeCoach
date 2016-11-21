@@ -54,11 +54,35 @@ function update(req, res) {
     });
 }
 
+function searchMentor(req, res){
+  console.log('searching:', req.query.q)
+  var queryArr = [];
+  queryArr.push(req.query.q);
+  queryArr.push(req.query.q.split(' '));
+
+  db.Mentor.search(queryArr, function(err, mentors){
+    if(err){
+      console.error(err);
+    }
+    res.json(mentors);
+ });
+}
+
+function listAllMentors(req, res) {
+    db.Mentor.find({}, function(err, allUsers) {
+        res.render('listAllMentors.ejs', {
+            mentor: allUsers
+        });
+    });
+}
+
 
 // export public methods here
 module.exports = {
     index: index,
     show: show,
     destroy: destroy,
-    update: update
+    update: update,
+    searchMentor: searchMentor,
+    listAllMentors: listAllMentors
 };

@@ -6,6 +6,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var db = require('./models');
+var controllers = require('./controllers');
 var isMentor;
 
 // serve static files from public folder
@@ -24,10 +25,6 @@ app.use(session({
     } // 30 minute cookie lifespan (in milliseconds)
 }));
 
-var controllers = require('./controllers');
-var id;
-
-
 /**********
  * ROUTES *
  **********/
@@ -44,6 +41,8 @@ app.get('/api/mentors', controllers.mentors.index);
 app.get('/api/mentors/:id', controllers.mentors.show);
 app.delete('/api/mentors/:id', controllers.mentors.destroy);
 app.put('/api/mentors/:id', controllers.mentors.update);
+app.get('/search', controllers.mentors.searchMentor);
+app.get('/listall', controllers.mentors.listAllMentors);
 
 app.get('/api/students', controllers.students.index);
 app.get('/api/students/:id', controllers.students.show);
@@ -53,14 +52,6 @@ app.put('/api/students/:id', controllers.students.update);
 // signup route (renders signup view)
 app.get('/signup', function(req, res) {
     res.render('signup');
-});
-
-app.get('/listall', function(req, res) {
-    db.Mentor.find({}, function(err, allUsers) {
-        res.render('listAllMentors.ejs', {
-            mentor: allUsers
-        });
-    });
 });
 
 // login route with placeholder response
@@ -90,18 +81,7 @@ app.get('/profile', function(req, res) {
     }
 });
 
-// app.get('/api/mentors/:areaOfInterest', function(req, res) {
-// //     console.log(req.query.areaOfInterest);
-// //     db.Mentor.search(req.body, function(err, user) {
-// //         if (err) {
-// //             console.log(err);
-// //         } else {
-// //             res.json({
-// //                 mentors: user
-// //             });
-// //         }
-// //     });
-// });
+
 // app.get('/api/languages/:id', function(req, res) {
 //     // find the user currently logged in
 //     db.Student.findOne({
@@ -117,21 +97,8 @@ app.get('/profile', function(req, res) {
 //     });
 // });
 
-app.get('/search', function searching(req, res) {
-    console.log('searching:', req.query.areaOfInterest);
-    var queryArr = [];
-    queryArr.push(req.query.areaOfInterest);
-    db.Mentor.search(queryArr, function(err, mentors) {
-        if (err) {
-            console.error(err);
-        }
-        res.render('search.ejs', {
-            mentor: mentors
-        });
-    });
-});
 
-// app.get('/search', function(req, res){
+// app.post('/search', function(req, res){
 //   db.Mentor.search(req.body, function(err, user){
 //     if(err){
 //       console.log(err);
