@@ -16,7 +16,15 @@ $(document).ready(function() {
         });
         $('#mentors').empty();
     });
-    $()
+    $(".deleteBtn").on('click', function() {
+        location.href = '/';
+        $.ajax({
+            method: 'DELETE',
+            url: '/api/students/' + $(this).attr('data-id'),
+            success: deleteMentor,
+            error: handleGetMentorError
+        });
+    });
 });
 
 function handleGetMentorSuccess(data) {
@@ -41,4 +49,8 @@ function renderMentor(mentor) {
     var mentorHtml = template(mentor);
     console.log(mentorHtml);
     $('#mentors').prepend(mentorHtml);
+}
+
+function deleteMentor(json) {
+    console.log(json)
 }

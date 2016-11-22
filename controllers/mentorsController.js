@@ -28,7 +28,7 @@ function show(req, res) {
 }
 
 function destroy(req, res) {
-    db.Mentor.findOneandRemove({
+    db.Mentor.findOneAndRemove({
         _id: req.params.id
     }, function(err, foundMentor) {
         res.json(foundMentor);
@@ -37,7 +37,7 @@ function destroy(req, res) {
 
 function update(req, res) {
     console.log('updating with data', req.body);
-    db.Mentor.findbyId(req.params.id, function(err, foundMentor) {
+    db.Mentor.findById(req.params.id, function(err, foundMentor) {
         if (err) {
             console.log('mentorsController.update error', err);
         }

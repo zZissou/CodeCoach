@@ -1,21 +1,84 @@
 body {
   font-family: 'Cormorant Garamond', serif;
+  word-wrap: break-word;
+}
+.heading {
+    margin: 30px 0;
+}
+.heading h3 {
+    font-size: 40px;
+    font-weight: bold;
+}
 }
 
+.header h3 {
+    width: 200px;
+}
+/*main left side*/
+.main-section-left {
+    text-align: left;
+    height: 350px;
+}
+.pending-requests {
+    height: 100px;
+    border: 1px solid black;
+}
+.accepted-requests {
+    border: 1px solid black;
+    height: 100px;
+}
+
+/*main section right*/
+.main-section-right {
+    height: 350px;
+}
 img {
-  height: 240px;
-  width: 250px;
+  height: 150px;
+  width: 150px;
+  margin-right: 20px;
 }
 
+.about-me p {
+    text-align: left;
+    font-size: 15px;
+}
+
+
+
+/*//////*/
 h3 {
-  font-weight: bolder;
-  text-align: left;
-  font-weight: normal;
+  font-weight: bold;
   text-align: left;
 }
 
+.test {
+    border: 1px solid black;
+}
+.search {
+    width:
+}
 #logout {
-  margin-top: 15px;
+  margin: 20px 5px 10px 5px;
   float: right;
   display: inline-block;
+}
+#home {
+    margin: 20px 5px 10px 5px;
+    float: right;
+    display: inline-block;
+}
+
+.button-stuff {
+    border: 2px solid black;
+}
+.search {
+    margin-top: 20px;
+}
+.custom-search-input {
+    padding: 0;
+}
+.main-section-left h2 {
+    font-weight: bold;
+    font-size: 30px;
+}
 }
