@@ -12,9 +12,15 @@ var MentorSchema = new Schema({
     number: Number,
     areaOfInterest: [String],
     image: String,
-    bio: String
-    // pending: [Student.schema],
-    // accepted: [Student.schema]
+    bio: String,
+    pending: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Student'
+    }],
+    accepted: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Student'
+    }]
 });
 
 var defaultImg = "http://www.communiquepr.com/blog/wp-content/uploads/2016/04/iStock_000045459678_Large.jpg";

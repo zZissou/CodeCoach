@@ -25,8 +25,7 @@
         <div class="row">
             <div class="heading col-md-12">
                 <h3 class="col-md-6">Hey <%= student.name %>! Welcome back.</h3>
-                <!-- <a id="home" type="button" href="/index" class="btn btn-primary col-md-1 col-md-offset-3">Home</a> -->
-                <a id="home" type="button" href="/index" class="btn btn-primary col-md-1">Home</a>
+                <a id="home" type="button" href="/" class="btn btn-primary col-md-1">Home</a>
                 <a id="logout" type="button" href="/logout" class="btn btn-primary col-md-1">Log Out</a>
             </div>
             <div class="main-section-left col-md-6">
@@ -87,7 +86,7 @@
                 <br>
                 <h4>Bio: </h4>
                 <b><i>{{bio}}</i></b>
-                <button class="contact" data-id="{{_id}}">Get in Touch!</button>
+                <button class="contactBtn" data-id="<%= student._id %>">Get in Touch</button>
         </div>
     </script>
 </body>

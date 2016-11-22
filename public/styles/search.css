@@ -2,6 +2,10 @@ body {
   font-family: 'Cormorant Garamond', serif;
 }
 
+.profile-mentor {
+    border: 2px solid black;
+    word-wrap: break-word;
+}
 .logo {
   height: 200px;
   width: 200px;

@@ -6,7 +6,6 @@ $(document).ready(function() {
     $('.search').submit(function(e) {
         e.preventDefault();
         var query = $(this).serialize();
-        console.log(query);
         $.ajax({
             method: 'get',
             data: query,
@@ -16,6 +15,7 @@ $(document).ready(function() {
         });
         $('#mentors').empty();
     });
+
     $(".deleteBtn").on('click', function() {
         location.href = '/';
         $.ajax({
@@ -25,22 +25,38 @@ $(document).ready(function() {
             error: handleGetMentorError
         });
     });
+
+    $(document).on('click', ".contactBtn", function() {
+        console.log($(this).attr('data-id'));
+        $.ajax({
+
+            method: 'post',
+            data: "userId="+$(this).attr('data-id')+"&mentorId="+$(this).parent().attr('data-id'),
+            url: '/contact',
+            success: contactMentor,
+            error: handlePostMentorError
+        });
+    });
 });
 
 function handleGetMentorSuccess(data) {
     var receivedMentor = data.mentor;
-    console.log(data.mentor);
     if (receivedMentor == undefined) {
         console.log("Cannot find a mentor!");
     } else {
-      for (mentorProfile of data.mentor) {
-        renderMentor(mentorProfile);
-      }
+        for (mentorProfile of data.mentor) {
+            renderMentor(mentorProfile);
+        }
     }
 }
 
 function handleGetMentorError(a, b, c) {
     console.log("Cannot get the json file!");
+}
+
+function handlePostMentorError(a, b, c) {
+    console.log("Cannot get the json file!");
+    console.log(data);
 }
 
 function renderMentor(mentor) {
@@ -51,6 +67,9 @@ function renderMentor(mentor) {
     $('#mentors').prepend(mentorHtml);
 }
 
+function contactMentor(json){
+    console.log(json);
+}
 function deleteMentor(json) {
-    console.log(json)
+    console.log(json);
 }

@@ -63,12 +63,13 @@ app.get('/login', function(req, res) {
 app.get('/profile', function(req, res) {
     // find the user currently logged in
     if (isMentor === true) {
-        db.Mentor.findOne({
-            _id: req.session.userId
-        }, function(err, currentUser) {
-            res.render('profile_mentor.ejs', {
-                mentor: currentUser
-            });
+        db.Mentor.findOne({_id: req.session.userId})
+        .populate('pending')
+        .exec(function(err, mentor){
+          res.render('profile_mentor.ejs', {
+             mentor: mentor
+          });
+          console.log(mentor);
         });
     } else {
         db.Student.findOne({
@@ -117,6 +118,19 @@ app.post('/sessions', function(req, res) {
             res.redirect('/profile');
         }
     });
+});
+
+app.post('/contact', function(req, res){
+  db.Mentor.findOne({_id: req.body.mentorId}, function(err, mentor){
+    if(err){console.log("Unable to find a mentor!")};
+    db.Student.findOne({_id: req.body.userId}, function(err, curtUser){
+        mentor.pending.unshift(curtUser._id);
+        mentor.save();
+        console.log(mentor);
+        res.json({mentor: mentor});
+    });
+
+  });
 });
 
 app.get('/logout', function(req, res) {

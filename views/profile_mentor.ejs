@@ -20,17 +20,24 @@
 <body>
     <div class="container text-center">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h1>Profile</h1>
-                <h2>Hey <%= mentor.name %>! How's it going?</h2>
-            </div>
-            <div class="main-section-left col-md-6">
-                <div class="pending-requests">
-                    <h2>Pending</h2>
+                <div class="col-md-6 col-md-offset-3">
+                    <h1>Profile</h1>
+                    <h2>Hey MENTOR <%= mentor.name %>! How's it going?</h2>
                 </div>
-                <div class="accepted-requests">
-                    <h2>Accepted</h2>
-                </div>
+                <div class="main-section-left col-md-6">
+                    <div class="pending-requests">
+                        <h2>Pending</h2>
+                        <p><%= mentor.pending[0].name %></p>
+                        <p><%= mentor.pending[0].email %></p>
+                        <p><%= mentor.pending[0].number %></p>
+                        <p><%= mentor.pending[0].areaOfInterest %></p>
+                        <p><%= mentor.pending[0].website %></p>
+                        <p><%= mentor.pending[0].bio %></p>
+                        <img src="<% mentor.pending[0].image %>"></img>
+                    </div>
+                    <div class="accepted-requests">
+                        <h2>Accepted</h2>
+                    </div>
             </div>
             <div class="main-section-right col-md-6">
                 <div class="my-info">
