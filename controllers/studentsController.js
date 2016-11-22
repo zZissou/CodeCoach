@@ -25,7 +25,7 @@ function show(req, res) {
 }
 
 function destroy(req, res) {
-    db.Student.findOneandRemove({ _id: req.params.id }, function(err, foundStudent){
+    db.Student.findOneAndRemove({ _id: req.params.id }, function(err, foundStudent){
       res.json(foundStudent);
     });
 }

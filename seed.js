@@ -71,7 +71,7 @@ var studentsList = [{
   number: '1294837161',
   website: 'https://github.com/zZissou',
   areaOfInterest: ['Javascript', 'Python'],
-  bio: 'Part time model. Full time Web Development student. Currently looking to expand my Javascript knowledge as well as learn Python.',
+  bio: 'Part time model. Full time Web Development student. Currently looking to expand my Javascript knowledge as well as learn Python. I would also like practice with interview problems.',
   image: 'https://media.licdn.com/media/AAEAAQAAAAAAAALOAAAAJGRhN2VhZmM1LTdlMjItNDM1My05YmI5LTI5ZTJiZjQxNjc4Yw.jpg'
 }, {
   name: 'Diane Liu',

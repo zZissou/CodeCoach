@@ -3,21 +3,20 @@ var template;
 
 $(document).ready(function() {
 
-  $.ajax({
-    method: 'GET',
-    url: '/api/mentors',
-    type: 'json',
-    success: handleGetMentorSuccess,
-    error: handleGetMentorError
-  });
+    $.ajax({
+        method: 'GET',
+        url: '/api/mentors',
+        type: 'json',
+        success: handleGetMentorSuccess,
+        error: handleGetMentorError
+    });
 
-  $.ajax({
-    method: 'GET',
-    url: '/api/students',
-    type: 'json',
-    success: handleGetStudentSuccess,
-    error: handleGetStudentError
-  });
+    $.ajax({
+        method: 'GET',
+        url: '/api/students',
+        type: 'json',
+        success: handleGetStudentSuccess,
+    });
 
 });
 
@@ -33,7 +32,7 @@ function handleGetMentorError(a, b, c) {
     console.log("Cannot get the json file!");
 }
 
-function renderMentor(mentor){
+function renderMentor(mentor) {
     var source = $('#mentor-template').html();
     var template = Handlebars.compile(source);
     var mentorHtml = template(mentor);
@@ -42,21 +41,21 @@ function renderMentor(mentor){
 
 //student stuff
 function handleGetStudentSuccess(data) {
-  var receivedStudent = data.students;
-  console.log(data);
-  receivedStudent.forEach(function renderOneStudent(student) {
-    renderStudent(student);
-  });
+    var receivedStudent = data.students;
+    console.log(data);
+    receivedStudent.forEach(function renderOneStudent(student) {
+        renderStudent(student);
+    });
 }
 
 function handlegetStudentError(a, b, c) {
-  console.log("Cannot get the json file!");
+    console.log("Cannot get the json file!");
 }
 
 //should we differentiate?
 function renderStudent(student) {
-  var source = $('#student-template').html();
-  var template = Handlebars.compile(source);
-  var profileHtml = template(profile);
-  $('#profiles').prepend(profileHtml);
+    var source = $('#student-template').html();
+    var template = Handlebars.compile(source);
+    var profileHtml = template(profile);
+    $('#profiles').prepend(profileHtml);
 }

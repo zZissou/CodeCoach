@@ -60,15 +60,37 @@ app.get('/login', function(req, res) {
 });
 
 // show user profile page
+// app.get('/profile', function(req, res) {
+//     // find the user currently logged in
+//     if (isMentor === true) {
+//         db.Mentor.findOne({
+//             _id: req.session.userId
+//         }, function(err, currentUser) {
+//             res.render('profile_mentor.ejs', {
+//                 mentor: currentUser
+//             });
+//         });
+//     } else {
+//         db.Student.findOne({
+//             _id: req.session.userId
+//         }, function(err, currentUser) {
+//             res.render('profile_student.ejs', {
+//                 student: currentUser
+//             });
+//         });
+//     }
+// });
+
 app.get('/profile', function(req, res) {
     // find the user currently logged in
     if (isMentor === true) {
-        db.Mentor.findOne({
-            _id: req.session.userId
-        }, function(err, currentUser) {
-            res.render('profile_mentor.ejs', {
-                mentor: currentUser
-            });
+        db.Mentor.findOne({_id: req.session.userId})
+        .populate('pending')
+        .exec(function(err, mentor){
+          res.render('profile_mentor.ejs', {
+             mentor: mentor
+          });
+          console.log(mentor);
         });
     } else {
         db.Student.findOne({
@@ -80,6 +102,7 @@ app.get('/profile', function(req, res) {
         });
     }
 });
+
 
 // A create user route - creates a new user with a secure password
 app.post('/users', function(req, res) {
@@ -117,6 +140,39 @@ app.post('/sessions', function(req, res) {
             res.redirect('/profile');
         }
     });
+});
+
+app.post('/contact', function(req, res){
+  db.Mentor.findOne({_id: req.body.mentorId}, function(err, mentor){
+    if(err){console.log("Unable to find a mentor!")};
+    db.Student.findOne({_id: req.body.userId}, function(err, curtUser){
+        mentor.pending.unshift(curtUser._id);
+        mentor.save();
+        console.log(mentor);
+        res.json({mentor: mentor});
+    });
+
+  });
+});
+
+app.post('/cancel', function(req, res){
+  db.Mentor.findOne({_id: req.body.userId}, function(err, mentor){
+        mentor.pending.shift();
+        mentor.save();
+        console.log(mentor);
+        res.json({mentor: mentor});
+  });
+});
+
+app.post('/accept', function(req, res){
+  db.Mentor.findOne({_id: req.body.userId}, function(err, mentor){
+        var tmp=mentor.pending.shift();
+        mentor.accepted.push(tmp);
+        mentor.save();
+        console.log(tmp);
+        console.log(mentor);
+        res.json({mentor: mentor});
+  });
 });
 
 

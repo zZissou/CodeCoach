@@ -2,7 +2,7 @@
   "name": "codecoach",
   "version": "1.0.0",
   "description": "## Wireframe ![wireframe](https://cloud.githubusercontent.com/assets/20157292/20363898/ec29bdc0-abf5-11e6-86f6-e66922979906.png)",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
