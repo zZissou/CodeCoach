@@ -1,4 +1,3 @@
-
 console.log("search.js is linked!");
 
 var template;
@@ -7,7 +6,7 @@ $(document).ready(function() {
     $('.search').submit(function(e) {
         e.preventDefault();
         var query = $(this).serialize();
-
+        console.log(query);
         $.ajax({
             method: 'get',
             data: query,
@@ -15,18 +14,20 @@ $(document).ready(function() {
             success: handleGetMentorSuccess,
             error: handleGetMentorError
         });
+        $('#mentors').empty();
     });
 });
 
 function handleGetMentorSuccess(data) {
     var receivedMentor = data.mentor;
-    console.log(data);
+    console.log(data.mentor);
     if (receivedMentor == undefined) {
         console.log("Cannot find a mentor!");
     } else {
-
-            renderMentor(data.mentor);
-
+      for (mentorProfile of data.mentor) {
+        console.log(mentorProfile)
+        renderMentor(mentorProfile);
+      }
     }
 }
 

@@ -1,39 +1,58 @@
 body {
   font-family: 'Cormorant Garamond', serif;
-
 }
+
+.nav {
+  padding-right: 0;
+  padding-left: 40px;
+}
+
 .navbar {
   margin: 0;
+  height: 50px;
 }
 
+.navbar-default {
+  height: 75px;
+  padding-top: 15px;
+}
 
-/*about us section*/
-.about-us {
-  text-align: center;
+.heading {
+  height: 550px;
+  background-image: url("../images/header.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
 }
-.about-us p {
+
+.heading h1 {
+  position: absolute;
   text-align: center;
-  font-size: 150%;
-  margin-top: 50px;
+  margin: 0;
+  text-align: center;
+  top: 30%;
+  left: 30%;
+  font-weight: bolder;
+  font-size: 100px;
+  color: white;
 }
+
 .our_languages {
+  display: inline-block;
 }
+
 .searchbar {
   display: inline-block;
 }
-.box {
-<<<<<<< HEAD
-  border: 2px solid black;
-  margin: 10px;
-=======
->>>>>>> master
 
-}
+.box {}
+
 .logo {
   height: 140px;
   width: 140px;
   overflow: hidden;
 }
+
 li {
   padding: 0, 10px;
   margin-left: 140px;
@@ -57,37 +76,84 @@ p {
 }
 
 
+/*about us section*/
+
+.about-us {
+  padding-top: 50px;
+}
+
+.about-us h2 {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 40px;
+}
+
+.box p {
+  font-size: 30px;
+}
+
+.students-coaches {
+  margin-top: 20px;
+}
+.students-coaches h3 {
+    font-size: 30px;
+}
+
+
 /*Student section on index*/
+
 .main-indiv-left {
+  position: relative;
   border: 2px black solid;
   padding: 5px;
-  height: 200px;
+  height: 250px;
   margin-bottom: 20px;
-  position: relative;
+  border-radius: 25px;
 }
+
 .main-indiv-left h3 {
-  margin-top: 0;
+    margin-top: 10px;
   position: absolute;
+  padding:
 }
+
 .main-indiv-left p {
   position: absolute;
-  left: 110px;
-  bottom: 25px;
-  right:
+  left: 155px;
+  top: 60px;
+  width: 300px;
+
 }
+
 .main-indiv-left .logo {
   position: absolute;
   top: 55px;
-
 }
+
 /*Coach section on index*/
 .main-indiv-right {
   border: 2px black solid;
   padding: 5px;
-  height: 200px;
-  margin-bottom: 20px
+  height: 250px;
+  margin-bottom: 20px;
+  border-radius: 25px;
 }
+
 .main-indiv-right .logo {
   float: right;
   margin-left: 5px;
+}
+
+.main-indiv-right h3 {
+    margin-top: 10px;
+}
+
+/*footer*/
+.footer {
+    background-image: url(../images/footer.jpeg);
+    height: 550px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
 }
