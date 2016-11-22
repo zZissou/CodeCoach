@@ -13,8 +13,6 @@ var MentorSchema = new Schema({
     areaOfInterest: [String],
     image: String,
     bio: String
-    // pending: [Student.schema],
-    // accepted: [Student.schema]
 });
 
 var defaultImg = "http://www.communiquepr.com/blog/wp-content/uploads/2016/04/iStock_000045459678_Large.jpg";
@@ -48,9 +46,6 @@ MentorSchema.statics.createSecure = function(newUser, callback) {
                 areaOfInterest: areaOfInterest,
                 image: image||defaultImg,
                 bio: bio
-
-                    // pending: pending,
-                    // accepted: accepted
             }, callback);
         });
     });

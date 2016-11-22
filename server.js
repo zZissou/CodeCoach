@@ -119,6 +119,7 @@ app.post('/sessions', function(req, res) {
     });
 });
 
+
 app.get('/logout', function(req, res) {
     // remove the session user id
     req.session.userId = null;
