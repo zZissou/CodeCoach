@@ -1,10 +1,9 @@
 var mongoose = require("mongoose"),
     bcrypt = require('bcrypt');
-  //  searchable = require('mongoose-searchable');
 
 var Schema = mongoose.Schema;
 
-var StudentSchema = new Schema({
+var StudentSchema = Schema({
     name: String,
     email: String,
     passwordDigest: String,
@@ -15,7 +14,6 @@ var StudentSchema = new Schema({
     image: String
 });
 
-//StudentSchema.plugin(searchable);
 
 var defaultImg = "http://www.suzyashworth.com/wp-content/uploads/2015/05/Fotolia_76168997_S.jpg";
 
