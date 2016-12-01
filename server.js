@@ -8,6 +8,7 @@ var session = require('express-session');
 var db = require('./models');
 var controllers = require('./controllers');
 var isMentor;
+// TODO: Should ejs be included in this list? -jc
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
@@ -19,6 +20,7 @@ app.set('view engine', 'ejs');
 app.use(session({
     saveUninitialized: true,
     resave: true,
+    // TODO: Change the default secret String to something different
     secret: 'SuperSecretCookie',
     cookie: {
         maxAge: 30 * 60 * 1000
@@ -59,6 +61,7 @@ app.get('/login', function(req, res) {
     res.render('login');
 });
 
+// TODO: remove unused code from production codebase -jc
 // show user profile page
 // app.get('/profile', function(req, res) {
 //     // find the user currently logged in
@@ -81,21 +84,25 @@ app.get('/login', function(req, res) {
 //     }
 // });
 
+// TODO: it's okay to have a couple authorization routes with anonymous functions in your server.js, but try to reduce the amount of full blown routes with callbacks on server.js (consider adding another controller file) -jc
 app.get('/profile', function(req, res) {
     // find the user currently logged in
     if (isMentor === true) {
         db.Mentor.findOne({_id: req.session.userId})
         .populate('pending')
         .exec(function(err, mentor){
+          // TODO: what happens if there is an error? -jc
           res.render('profile_mentor.ejs', {
              mentor: mentor
           });
+          // TODO: avoid console logs in production codebase
           console.log(mentor);
         });
     } else {
         db.Student.findOne({
             _id: req.session.userId
         }, function(err, currentUser) {
+            // TODO: what happens if there is an error? -jc
             res.render('profile_student.ejs', {
                 student: currentUser
             });
@@ -105,8 +112,9 @@ app.get('/profile', function(req, res) {
 
 
 // A create user route - creates a new user with a secure password
+//TODO: After a user signs up they just get dumped to a login page? That's not very user friendly. -jc
 app.post('/users', function(req, res) {
-
+    // Nice job -jc
     if (req.body.option === 'Mentor') {
         db.Mentor.createSecure(req.body, function(err, user) {
             res.redirect('/login');
@@ -122,7 +130,9 @@ app.post('/users', function(req, res) {
 app.post('/sessions', function(req, res) {
     // use the email and password to authenticate here
     db.Mentor.authenticate(req.body.email, req.body.password, function(err, user) {
+      // TODO: This is a poor workaround for checking one DB then the other. Is there a better way? -jcß
         if (err) {
+            // TODO: remove unused code from production codebase -jc
             //res.redirect('/login');
             db.Student.authenticate(req.body.email, req.body.password, function(err, user) {
                 if (err) {
@@ -148,6 +158,7 @@ app.post('/contact', function(req, res){
     db.Student.findOne({_id: req.body.userId}, function(err, curtUser){
         mentor.pending.unshift(curtUser._id);
         mentor.save();
+        // TODO: avoid console logs in production codebase
         console.log(mentor);
         res.json({mentor: mentor});
     });
@@ -159,7 +170,9 @@ app.post('/cancel', function(req, res){
   db.Mentor.findOne({_id: req.body.userId}, function(err, mentor){
         mentor.pending.shift();
         mentor.save();
+        // TODO: avoid console logs in production codebase
         console.log(mentor);
+        //TODO: send this res.json inside a callback function of the metor.save function -jc. You're only sending the original mentor object, not the saved newer object -jc
         res.json({mentor: mentor});
   });
 });
@@ -169,8 +182,10 @@ app.post('/accept', function(req, res){
         var tmp=mentor.pending.shift();
         mentor.accepted.push(tmp);
         mentor.save();
+        // TODO: avoid console logs in production codebase
         console.log(tmp);
         console.log(mentor);
+        //TODO: send this res.json inside a callback function of the metor.save function -jc. You're only sending the original mentor object, not the saved newer object -jc
         res.json({mentor: mentor});
   });
 });

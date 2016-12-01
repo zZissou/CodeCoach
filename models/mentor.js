@@ -23,6 +23,7 @@ var MentorSchema = new Schema({
     }]
 });
 
+//TODO: You are hotlinking. What happens when communiquepr replaces this image with an inappropriate image? -jc
 var defaultImg = "http://www.communiquepr.com/blog/wp-content/uploads/2016/04/iStock_000045459678_Large.jpg";
 
 //pass in a newUser object which will be assigned req.body, then pass req.body into createSecure. THEN you can assign each attribute from newUser objects

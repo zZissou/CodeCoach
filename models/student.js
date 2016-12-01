@@ -14,7 +14,7 @@ var StudentSchema = Schema({
     image: String
 });
 
-
+//TODO: You are hotlinking. What happens when suzyashworth replaces this image with an inappropriate image? -jc
 var defaultImg = "http://www.suzyashworth.com/wp-content/uploads/2015/05/Fotolia_76168997_S.jpg";
 
 //pass in a newUser object which will be assigned req.body, then pass req.body into createSecure. THEN you can assign each attribute from newUser objects
