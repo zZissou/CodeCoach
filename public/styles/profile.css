@@ -1,3 +1,5 @@
+/*TODO: Make sure your layout convention is consistent across all of these css files. Pick a tab width and stick to it. Give at least one blank line between styles. Makes reading much easier. -jc*/
+
 body {
   font-family: 'Cormorant Garamond', serif;
   word-wrap: break-word;
@@ -82,4 +84,5 @@ h3 {
     font-weight: bold;
     font-size: 30px;
 }
+/*TODO: Check to make sure there are no orphaned curly braces like this little guy :( -jc*/
 }

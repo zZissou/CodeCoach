@@ -29,3 +29,5 @@
     "mongoose-searchable": "^1.0.0"
   }
 }
+
+/* Why are you including hbs in your package.json? */

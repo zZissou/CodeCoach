@@ -19,6 +19,7 @@ function index(req, res) {
 function show(req, res) {
   db.Student.findById(req.params.id, function(err, foundStudent) {
     if(err) { console.log('studentsController.show error', err); }
+    // TODO: avoid console logging in production codebase -jc
     console.log('studentsController.show responding with', foundStudent);
     res.json(foundStudent);
   });
@@ -26,6 +27,7 @@ function show(req, res) {
 
 function destroy(req, res) {
     db.Student.findOneAndRemove({ _id: req.params.id }, function(err, foundStudent){
+      //TODO: What happens if there is an error?
       res.json(foundStudent);
     });
 }

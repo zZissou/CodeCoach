@@ -31,12 +31,15 @@ function destroy(req, res) {
     db.Mentor.findOneAndRemove({
         _id: req.params.id
     }, function(err, foundMentor) {
+      //TODO: What happens if there is an error? -jc
         res.json(foundMentor);
     });
 }
 
 function update(req, res) {
+    // TODO: avoid console logging in production codebase -jc
     console.log('updating with data', req.body);
+    // TODO: consider using an update method instead of a findOne and save. -jc
     db.Mentor.findById(req.params.id, function(err, foundMentor) {
         if (err) {
             console.log('mentorsController.update error', err);
@@ -55,8 +58,10 @@ function update(req, res) {
 }
 
 function searchMentor(req, res){
+  // TODO: avoid console logging in production codebase -jc
   console.log('Searching:', req.query.q);
   var searchName = req.query.q;
+  // TODO: avoid console logging in production codebase -jc
   console.log(searchName);
 
   db.Mentor.find({}, function(err, succ){
@@ -67,9 +72,11 @@ function searchMentor(req, res){
           arr.push(elem);
         }
       });
+      //TODO: Move error checks to the top of the function, as this will prevent wasted code activity -jc
        if(err){
          return console.log(err);
        }
+       // TODO: avoid console logging in production codebase -jc
        console.log("Sending ", arr);
        res.json({mentor: arr});
   });
